@@ -25,14 +25,14 @@ const products = [
     image: '/image/product4.jpg',
   },
   {
+     name: 'Remedy Suggestions',
+    description: 'Spiritual solutions & rituals.',
+    image: '/image/product6.jpg',
+  },
+  {
     name: 'Marriage Horoscope',
     description: 'Find compatibility & auspicious dates.',
     image: '/image/product5.jpg',
-  },
-  {
-    name: 'Remedy Suggestions',
-    description: 'Spiritual solutions & rituals.',
-    image: '/image/product6.jpg',
   },
 ]
 
