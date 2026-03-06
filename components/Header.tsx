@@ -23,15 +23,17 @@ export default function Header() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#1a0f0a]/95 backdrop-blur-md shadow-lg'
+          ? 'bg-white/40 backdrop-blur-lg shadow-md'
           : 'bg-transparent'
       }`}
     >
+
       {/* NAVBAR */}
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+
         {/* LOGO */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl md:text-3xl font-bold gradient-text">
+          <span className="text-2xl md:text-3xl font-bold text-black">
             Maa Tarini Astro-Vision
           </span>
         </Link>
@@ -43,10 +45,11 @@ export default function Header() {
 
           {/* EXPLORE DROPDOWN */}
           <div className="relative group">
-            <button className="text-white hover:text-secondary font-semibold transition-colors">
+            <button className="text-black hover:text-yellow-500 font-semibold transition-colors">
               Explore
             </button>
-            <div className="absolute top-full left-0 mt-2 w-48 bg-[#2a1f1a] rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+
+            <div className="absolute top-full left-0 mt-2 w-48 bg-white/90 backdrop-blur-lg rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <DropdownLink href="/services" label="Our Services" />
               <DropdownLink href="/horoscope" label="Daily Horoscope" />
               <DropdownLink href="/blog" label="Blog" />
@@ -59,7 +62,7 @@ export default function Header() {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-black"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
@@ -87,7 +90,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#1a0f0a]/98 backdrop-blur-md"
+            className="md:hidden bg-white/90 backdrop-blur-lg"
           >
             <div className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               <MobileLink href="/" label="Home" close={() => setIsMobileMenuOpen(false)} />
@@ -99,9 +102,11 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
     </motion.header>
   )
 }
+
 
 /* =========================
    REUSABLE COMPONENTS
@@ -111,7 +116,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="text-white hover:text-secondary font-semibold transition-colors"
+      className="text-black hover:text-yellow-500 font-semibold transition-colors"
     >
       {label}
     </Link>
@@ -122,7 +127,7 @@ function DropdownLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="block px-4 py-3 text-white hover:bg-primary/20 transition-colors"
+      className="block px-4 py-3 text-black hover:bg-yellow-400/20 transition-colors"
     >
       {label}
     </Link>
@@ -142,7 +147,7 @@ function MobileLink({
     <Link
       href={href}
       onClick={close}
-      className="text-white text-lg hover:text-secondary transition-colors"
+      className="text-black text-lg hover:text-yellow-500 transition-colors"
     >
       {label}
     </Link>

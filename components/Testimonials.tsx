@@ -38,8 +38,9 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[#2a1f1a] to-[#1a0f0a]">
+    <section className="py-20">
       <div className="container mx-auto px-4">
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,29 +49,32 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-display font-bold gradient-text mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-black">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto font-body">
+
+          <p className="text-xl text-black/70 max-w-2xl mx-auto">
             Real experiences from real people
           </p>
         </motion.div>
 
         {/* Testimonials Carousel */}
         <div className="max-w-4xl mx-auto">
+
           <motion.div
             key={activeIndex}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="bg-gradient-to-br from-[#3a2f2a]/50 to-[#2a1f1a]/50 rounded-3xl p-8 md:p-12 border border-secondary/20 backdrop-blur-sm"
+            className="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/40 shadow-xl"
           >
+
             {/* Stars */}
             <div className="flex justify-center mb-6">
               {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
                 <svg
                   key={i}
-                  className="w-6 h-6 text-secondary"
+                  className="w-6 h-6 text-yellow-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -80,22 +84,26 @@ export default function Testimonials() {
             </div>
 
             {/* Quote */}
-            <p className="text-xl md:text-2xl text-white/90 text-center mb-8 font-body italic leading-relaxed">
+            <p className="text-xl md:text-2xl text-black/80 text-center mb-8 italic leading-relaxed">
               "{testimonials[activeIndex].text}"
             </p>
 
             {/* Author */}
             <div className="flex items-center justify-center gap-4">
-              <div className="w-16 h-16 bg-primary/30 rounded-full flex items-center justify-center text-4xl border-2 border-secondary/50">
+              <div className="w-16 h-16 bg-yellow-400/30 rounded-full flex items-center justify-center text-4xl border-2 border-yellow-400">
                 {testimonials[activeIndex].image}
               </div>
+
               <div>
-                <div className="text-xl font-semibold text-secondary">
+                <div className="text-xl font-semibold text-black">
                   {testimonials[activeIndex].name}
                 </div>
-                <div className="text-white/60">{testimonials[activeIndex].location}</div>
+                <div className="text-black/60">
+                  {testimonials[activeIndex].location}
+                </div>
               </div>
             </div>
+
           </motion.div>
 
           {/* Navigation Dots */}
@@ -106,8 +114,8 @@ export default function Testimonials() {
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex
-                    ? 'bg-secondary w-8'
-                    : 'bg-white/30 hover:bg-white/50'
+                    ? 'bg-yellow-500 w-8'
+                    : 'bg-black/20 hover:bg-black/40'
                 }`}
               />
             ))}
@@ -115,14 +123,17 @@ export default function Testimonials() {
 
           {/* Navigation Arrows */}
           <div className="flex justify-center gap-4 mt-8">
+
             <button
               onClick={() =>
-                setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+                setActiveIndex((prev) =>
+                  prev === 0 ? testimonials.length - 1 : prev - 1
+                )
               }
-              className="w-12 h-12 rounded-full bg-primary/30 border border-secondary/50 flex items-center justify-center hover:bg-primary/50 transition-all"
+              className="w-12 h-12 rounded-full bg-white/40 border border-yellow-400 flex items-center justify-center hover:bg-white/60 transition-all"
             >
               <svg
-                className="w-6 h-6 text-secondary"
+                className="w-6 h-6 text-yellow-500"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -133,14 +144,17 @@ export default function Testimonials() {
                 <path d="M15 19l-7-7 7-7" />
               </svg>
             </button>
+
             <button
               onClick={() =>
-                setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+                setActiveIndex((prev) =>
+                  prev === testimonials.length - 1 ? 0 : prev + 1
+                )
               }
-              className="w-12 h-12 rounded-full bg-primary/30 border border-secondary/50 flex items-center justify-center hover:bg-primary/50 transition-all"
+              className="w-12 h-12 rounded-full bg-white/40 border border-yellow-400 flex items-center justify-center hover:bg-white/60 transition-all"
             >
               <svg
-                className="w-6 h-6 text-secondary"
+                className="w-6 h-6 text-yellow-500"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -151,7 +165,9 @@ export default function Testimonials() {
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </button>
+
           </div>
+
         </div>
       </div>
     </section>
