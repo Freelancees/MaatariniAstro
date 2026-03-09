@@ -1,12 +1,12 @@
 'use client'
 
-import Header from '@/components/Header'
+// import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
+import CelestialPicks from '@/components/CelestialPicks'           
 import ProductsSection from '@/components/Product'
 
 export default function Home() {
@@ -58,14 +58,15 @@ export default function Home() {
 
       {/* Page Content */}
       <div className="relative z-10">
-        <Header />
+       
         <Hero />
+        <CelestialPicks />
         <Services />
         <ProductsSection />
         <About />
         <Testimonials />
         <Contact />
-        <Footer />
+        
       </div>
 
     </main>

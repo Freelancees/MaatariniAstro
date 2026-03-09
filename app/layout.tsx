@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Header from '@/components/Header'   // import header
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Maa Tarini Astro-Vision | Bhubaneswar',
@@ -24,7 +26,11 @@ export default function RootLayout({
         text-black
         "
       >
-        {children}
+        <Header />
+        <main>
+          {children}
+        </main>
+<Footer />
       </body>
     </html>
   )

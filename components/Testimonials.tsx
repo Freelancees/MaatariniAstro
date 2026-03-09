@@ -1,174 +1,111 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const testimonials = [
   {
     name: 'Priya Mishra',
     location: 'Bhubaneswar',
-    rating: 5,
-    text: 'The consultation I received was incredibly accurate and helpful. The astrologer provided deep insights into my career path that have proven true. Highly recommended!',
-    image: '👩',
+    text: 'The consultation was incredibly accurate and helpful.',
   },
   {
     name: 'Rajesh Kumar',
     location: 'Cuttack',
-    rating: 5,
-    text: 'Amazing experience! The gemstone recommendation has brought positive changes in my life. The team is professional and genuinely cares about their clients.',
-    image: '👨',
+    text: 'Amazing experience! The gemstone recommendation worked.',
   },
   {
     name: 'Ananya Patel',
     location: 'Puri',
-    rating: 5,
-    text: 'I was skeptical at first, but the accuracy of the predictions amazed me. The Vastu consultation for my new home was particularly valuable.',
-    image: '👩',
-  },
-  {
-    name: 'Sanjay Mishra',
-    location: 'Bhubaneswar',
-    rating: 5,
-    text: 'Excellent service and genuine guidance. The astrologer took time to explain everything in detail and answered all my questions patiently.',
-    image: '👨',
+    text: 'Predictions were shockingly accurate. Highly recommend.',
   },
 ]
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [index, setIndex] = useState(0)
+
+  /* Auto Slide */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
+    <section className="py-14 relative overflow-hidden">
 
-        {/* Section Header */}
+      {/* twinkling stars */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(40)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute bg-white rounded-full opacity-80 animate-pulse"
+            style={{
+              width: `${Math.random()*3}px`,
+              height: `${Math.random()*3}px`,
+              left: `${Math.random()*100}%`,
+              top: `${Math.random()*100}%`,
+              animationDelay: `${Math.random()*4}s`
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-xl mx-auto px-6 text-center">
+
+        {/* Title */}
+        <h2 className="text-3xl font-bold text-black mb-8">
+          Client Blessings ✨
+        </h2>
+
+        {/* Card */}
         <motion.div
+          key={index}
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ rotateX: 6, rotateY: -6 }}
+          className="bg-white/60 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/40"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-black">
-            What Our Clients Say
-          </h2>
 
-          <p className="text-xl text-black/70 max-w-2xl mx-auto">
-            Real experiences from real people
+          {/* Stars */}
+          <div className="flex justify-center mb-3 text-yellow-500">
+            ★★★★★
+          </div>
+
+          {/* Text */}
+          <p className="text-black/80 text-lg italic mb-4">
+            "{testimonials[index].text}"
           </p>
+
+          {/* Name */}
+          <div className="text-sm font-semibold text-black">
+            {testimonials[index].name}
+          </div>
+
+          <div className="text-xs text-black/60">
+            {testimonials[index].location}
+          </div>
+
         </motion.div>
 
-        {/* Testimonials Carousel */}
-        <div className="max-w-4xl mx-auto">
-
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white/50 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/40 shadow-xl"
-          >
-
-            {/* Stars */}
-            <div className="flex justify-center mb-6">
-              {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-6 h-6 text-yellow-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-
-            {/* Quote */}
-            <p className="text-xl md:text-2xl text-black/80 text-center mb-8 italic leading-relaxed">
-              "{testimonials[activeIndex].text}"
-            </p>
-
-            {/* Author */}
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-16 h-16 bg-yellow-400/30 rounded-full flex items-center justify-center text-4xl border-2 border-yellow-400">
-                {testimonials[activeIndex].image}
-              </div>
-
-              <div>
-                <div className="text-xl font-semibold text-black">
-                  {testimonials[activeIndex].name}
-                </div>
-                <div className="text-black/60">
-                  {testimonials[activeIndex].location}
-                </div>
-              </div>
-            </div>
-
-          </motion.div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-3 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex
-                    ? 'bg-yellow-500 w-8'
-                    : 'bg-black/20 hover:bg-black/40'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="flex justify-center gap-4 mt-8">
-
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-5">
+          {testimonials.map((_, i) => (
             <button
-              onClick={() =>
-                setActiveIndex((prev) =>
-                  prev === 0 ? testimonials.length - 1 : prev - 1
-                )
-              }
-              className="w-12 h-12 rounded-full bg-white/40 border border-yellow-400 flex items-center justify-center hover:bg-white/60 transition-all"
-            >
-              <svg
-                className="w-6 h-6 text-yellow-500"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button
-              onClick={() =>
-                setActiveIndex((prev) =>
-                  prev === testimonials.length - 1 ? 0 : prev + 1
-                )
-              }
-              className="w-12 h-12 rounded-full bg-white/40 border border-yellow-400 flex items-center justify-center hover:bg-white/60 transition-all"
-            >
-              <svg
-                className="w-6 h-6 text-yellow-500"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-          </div>
-
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`h-2 rounded-full transition-all ${
+                i === index
+                  ? 'bg-yellow-500 w-6'
+                  : 'bg-black/30 w-2'
+              }`}
+            />
+          ))}
         </div>
+
       </div>
     </section>
   )
