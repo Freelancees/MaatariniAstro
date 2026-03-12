@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-display font-bold gradient-text mb-4">
-              Maa Tarini Astro-Vision
+              Utkala Gems
             </h3>
             <p className="text-white/70 mb-4 font-body">
               Guiding you through life's journey with ancient wisdom and cosmic insights.
@@ -125,7 +125,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2 text-white/70">
                 <span className="text-xl">📞</span>
-                <span>+91 98765 43210</span>
+                <span>+91 9938510555</span>
               </li>
               <li className="flex items-start gap-2 text-white/70">
                 <span className="text-xl">✉️</span>
@@ -144,7 +144,7 @@ export default function Footer() {
 
     {/* Left Column */}
     <p className="text-white/60 text-sm">
-      © {currentYear} Maa Tarini Astro-Vision. All rights reserved.
+      © {currentYear} Utkala Gems. All rights reserved.
     </p>
 
     {/* Center Column */}

@@ -47,7 +47,7 @@ export default function AboutUsPage() {
           >
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#1a0f0a]">
-              About Maa Tarini Astro-Vision
+              About Utkala Gems
             </h1>
 
             <p className="text-xl md:text-2xl text-black/70">
@@ -77,7 +77,7 @@ export default function AboutUsPage() {
             <div className="space-y-6 text-lg text-black/70 leading-relaxed">
 
               <p>
-                Founded in the spiritual city of Bhubaneswar, Maa Tarini Astro-Vision
+                Founded in the spiritual city of Bhubaneswar, Utkala Gems
                 was born from a deep reverence for Vedic knowledge and a calling
                 to help people navigate life's complexities through astrology.
               </p>

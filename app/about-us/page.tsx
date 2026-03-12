@@ -50,7 +50,7 @@ export default function About() {
                 <div className="text-center">
                   <div className="text-8xl mb-6">🕉️</div>
                   <p className="text-3xl font-semibold text-orange-500">
-                    Maa Tarini
+                    Utkal Gems
                   </p>
                 </div>
 
@@ -71,13 +71,13 @@ export default function About() {
           >
 
             <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-              About Maa Tarini Astro-Vision
+              About Utkala Gems
             </h2>
 
             <div className="space-y-5 text-lg text-black/70 leading-relaxed">
 
               <p>
-                Welcome to Maa Tarini Astro-Vision, where ancient Vedic wisdom
+                Welcome to Utkala Gems, where ancient Vedic wisdom
                 meets modern spiritual guidance. Based in the sacred city of
                 Bhubaneswar, we help individuals discover clarity, balance,
                 and purpose through the powerful science of astrology.

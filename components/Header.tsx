@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
@@ -42,17 +43,50 @@ export default function Header() {
       }`}
     >
       {/* NAVBAR */}
-      <nav className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+      <nav className="w-full flex items-center justify-between px-8 py-4">
 
-        {/* LOGO */}
-        <Link href="/" className="flex items-center">
-          <span className="text-lg sm:text-xl md:text-2xl font-bold text-black leading-tight">
-            Maa Tarini Astro-Vision
-          </span>
+        {/* LOGO + BRAND */}
+        <Link href="/" className="flex items-center gap-3">
+
+          {/* GLOWING LOGO */}
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 10px rgba(255,215,0,0.3)",
+                "0 0 25px rgba(255,215,0,0.7)",
+                "0 0 10px rgba(255,215,0,0.3)",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+            }}
+            className="rounded-full"
+          >
+            <Image
+              src="/image/logo.png"
+              alt="Utkala Gems"
+              width={60}
+              height={60}
+              className="rounded-full object-cover"
+              priority
+            />
+          </motion.div>
+
+          {/* BRAND TEXT */}
+          <div className="leading-tight">
+            <div className="text-lg font-semibold tracking-wide text-black">
+              Utkala
+            </div>
+            <div className="text-xl font-bold tracking-widest text-yellow-600">
+              Gems
+            </div>
+          </div>
+
         </Link>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-10">
           <NavLink href="/" label="Home" />
           <NavLink href="/product" label="Product" />
 
@@ -119,7 +153,6 @@ export default function Header() {
     </motion.header>
   )
 }
-
 
 /* NAV LINKS */
 

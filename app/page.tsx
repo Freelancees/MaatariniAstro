@@ -8,6 +8,7 @@ import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
 import CelestialPicks from '@/components/CelestialPicks'           
 import ProductsSection from '@/components/Product'
+import WhatsAppButton from "@/components/WhatsAppButton"
 
 export default function Home() {
   return (
@@ -66,7 +67,7 @@ export default function Home() {
         <About />
         <Testimonials />
         <Contact />
-        
+        <WhatsAppButton />
       </div>
 
     </main>

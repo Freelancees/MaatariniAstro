@@ -66,7 +66,7 @@ export default function Contact() {
 
                 <div>
                   <h3 className="font-semibold text-yellow-500">Call Us</h3>
-                  <p className="text-black/70">+91 98765 43210</p>
+                  <p className="text-black/70">+91 9938510555</p>
                 </div>
               </motion.div>
 

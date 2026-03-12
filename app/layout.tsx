@@ -4,7 +4,7 @@ import Header from '@/components/Header'   // import header
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Maa Tarini Astro-Vision | Bhubaneswar',
+  title: 'Utkala Gems | Bhubaneswar',
   description: "Astrology for Life's Journey - Guiding You with Cosmic Wisdom",
   keywords: 'astrology, horoscope, tarot, palmistry, vastu, numerology, Bhubaneswar',
 }

@@ -3,57 +3,59 @@
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 
 const products = [
-  {
-    name: "Rudraksha Mala",
-    img: "/image/rudraksha.jpg",
-    back: "Enhances spiritual energy and meditation focus.",
-  },
-  {
-    name: "Navagraha Yantra",
-    img: "/image/yantra.jpg",
-    back: "Balances the nine planetary energies in life.",
-  },
-  {
-    name: "Gemstone Bracelet",
-    img: "/image/gemstone.jpg",
-    back: "Harness planetary vibrations with gemstones.",
-  },
-  {
-    name: "Vastu Pyramid",
-    img: "/image/pyramid.jpg",
-    back: "Improves energy balance in home & workspace.",
-  },
+  { name: "Rudraksha Mala", img: "/image/rudraksha.jpg", back: "Enhances spiritual energy and meditation focus." },
+  { name: "Navagraha Yantra", img: "/image/yantra.jpg", back: "Balances the nine planetary energies in life." },
+  { name: "Gemstone Bracelet", img: "/image/gemstone.jpg", back: "Harness planetary vibrations with gemstones." },
+  { name: "Vastu Pyramid", img: "/image/pyramid.jpg", back: "Improves energy balance in home & workspace." },
+  { name: "Sphatik Mala", img: "/image/sphatik.jpg", back: "Promotes peace, clarity and spiritual awareness." },
+  { name: "Shree Yantra", img: "/image/shreeyantra.jpg", back: "Attracts prosperity and divine blessings." },
+  { name: "Navratna Ring", img: "/image/navratna.jpg", back: "Balances all nine planetary influences." },
+  { name: "Healing Crystal", img: "/image/crystal.jpg", back: "Supports emotional healing and positivity." },
+  { name: "Ketu Yantra", img: "/image/ketu.jpg", back: "Removes obstacles and spiritual blockages." },
+  { name: "Astrology Pendant", img: "/image/pendant.jpg", back: "Protective charm aligned with cosmic energies." },
 ]
 
 export default function CelestialPicks() {
 
   const sliderRef = useRef<HTMLDivElement>(null)
+  const indicatorRef = useRef<HTMLDivElement>(null)
 
-  /* Infinite Auto Scroll */
+  /* Auto Scroll */
   useEffect(() => {
+
     const slider = sliderRef.current
+    const indicator = indicatorRef.current
+
     if (!slider) return
 
     let scroll = 0
 
     const auto = setInterval(() => {
+
       scroll += 1
       slider.scrollLeft = scroll
 
-      if (scroll >= slider.scrollWidth / 2) {
+      if (indicator) {
+        indicator.style.transform = `translateX(${scroll/5}px)`
+      }
+
+      if (scroll >= slider.scrollWidth - slider.clientWidth) {
         scroll = 0
       }
+
     }, 20)
 
     return () => clearInterval(auto)
+
   }, [])
 
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section className="relative py-20 overflow-hidden">
 
-      {/* Twinkling Stars */}
+      {/* ⭐ Twinkling Stars */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(80)].map((_, i) => (
           <div
@@ -70,7 +72,7 @@ export default function CelestialPicks() {
         ))}
       </div>
 
-      {/* Orbiting Planets */}
+      {/* ⭐ Orbit Rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
 
         <motion.div
@@ -91,26 +93,28 @@ export default function CelestialPicks() {
 
       </div>
 
-      {/* Title */}
-      <div className="text-center mb-10 relative z-10">
+      {/* ⭐ Title */}
+      <div className="text-center mb-12 relative z-10">
         <h2 className="text-3xl font-bold text-white drop-shadow-lg">
           Celestial Picks
         </h2>
       </div>
 
-      {/* Slider */}
+      {/* ⭐ Product Slider */}
       <div
         ref={sliderRef}
-        className="flex gap-6 overflow-x-scroll no-scrollbar px-6 relative z-10"
+        className="flex gap-8 overflow-x-scroll no-scrollbar px-8 relative z-10"
       >
-        {[...products, ...products].map((p, i) => (
 
-          <div
+        {products.map((p, i) => (
+
+          <Link
+            href="/product"
             key={i}
-            className="min-w-[220px] h-[260px] perspective"
+            className="min-w-[240px] h-[280px] perspective"
           >
 
-            <div className="relative w-full h-full duration-700 transform-style preserve-3d hover:rotate-y-180">
+            <div className="relative w-full h-full duration-700 preserve-3d hover:rotate-y-180">
 
               {/* Front */}
               <div className="absolute w-full h-full backface-hidden bg-white/30 backdrop-blur-md rounded-xl p-4 border border-white/40 shadow-xl">
@@ -118,9 +122,9 @@ export default function CelestialPicks() {
                 <Image
                   src={p.img}
                   alt={p.name}
-                  width={220}
+                  width={240}
                   height={180}
-                  className="rounded-lg"
+                  className="rounded-lg object-cover"
                 />
 
                 <h3 className="text-center mt-3 font-semibold text-gray-900">
@@ -138,9 +142,24 @@ export default function CelestialPicks() {
 
             </div>
 
-          </div>
+          </Link>
 
         ))}
+
+      </div>
+
+      {/* ⭐ Slider Indicator */}
+      <div className="mt-10 flex justify-center">
+
+        <div className="w-[300px] h-[4px] bg-white/30 rounded-full relative overflow-hidden">
+
+          <div
+            ref={indicatorRef}
+            className="absolute w-[80px] h-full bg-yellow-400 rounded-full transition-transform"
+          />
+
+        </div>
+
       </div>
 
       <style jsx>{`

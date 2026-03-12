@@ -1,3 +1,4 @@
+
 'use client'
 
 import { motion } from 'framer-motion'
@@ -5,93 +6,125 @@ import Image from 'next/image'
 
 export default function About() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-28 relative overflow-hidden">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Zodiac background */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/image/zodiac-bg.png')] bg-center bg-cover"></div>
 
-          {/* Image Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="relative h-[500px] rounded-2xl overflow-hidden border-4 border-yellow-400 shadow-xl">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+        {/* 70 / 30 GRID */}
+        <div className="grid lg:grid-cols-[7fr_3fr] gap-16 items-start">
+
+          {/* LEFT SIDE */}
+          <div className="space-y-12">
+
+            {/* ABOUT TEXT */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-5xl font-bold text-black mb-6">
+                About Utkala Gems
+              </h2>
+
+              <p className="text-lg text-black/80 leading-relaxed mb-4">
+                Welcome to Utkala Gems, where ancient wisdom meets modern
+                understanding. Based in the spiritual city of Bhubaneswar,
+                we guide individuals using the sacred knowledge of Vedic
+                astrology and gemstone science.
+              </p>
+
+              <p className="text-lg text-black/80 leading-relaxed">
+                Our mission is to provide clarity and direction in life
+                through authentic astrology consultations, personalized
+                gemstone recommendations, and powerful spiritual remedies
+                aligned with your birth chart.
+              </p>
+            </motion.div>
+
+
+            {/* BIG OM IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative w-full h-[320px] rounded-2xl overflow-hidden border-2 border-yellow-400 shadow-lg"
+            >
               <Image
-                src="/image/omm image.jpg"
-                alt="Maa Tarini"
+                src="/image/om.png"
+                alt="Om Symbol"
                 fill
-                className="object-cover"
+                className="object-contain p-10"
               />
+            </motion.div>
 
-              {/* Decorative corners */}
-              <div className="absolute top-4 left-4 w-20 h-20 border-t-4 border-l-4 border-yellow-400" />
-              <div className="absolute bottom-4 right-4 w-20 h-20 border-b-4 border-r-4 border-yellow-400" />
-            </div>
-          </motion.div>
+          </div>
 
-          {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
 
-            <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
-              About Maa Tarini Astro-Vision
-            </h2>
 
-            <div className="space-y-4 text-lg text-black/80 leading-relaxed">
-              <p>
-                Welcome to Maa Tarini Astro-Vision, where ancient wisdom meets modern understanding.
-                Based in the spiritual heart of Bhubaneswar, we help individuals navigate life’s
-                journey through the profound insights of Vedic astrology.
-              </p>
+          {/* RIGHT SIDE */}
+          <div className="space-y-8 text-center">
 
-              <p>
-                Our experienced astrologers combine traditional knowledge passed down through
-                generations with contemporary interpretations to provide accurate, meaningful,
-                and actionable guidance for all aspects of your life.
-              </p>
+            {/* OWNER PHOTO */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="flex justify-center"
+            >
 
-              <p>
-                Whether you seek clarity on career decisions, relationship matters, health concerns,
-                or spiritual growth, we offer personalized consultations tailored to your unique
-                birth chart and life circumstances.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-10">
-
-              <div className="text-center bg-white/40 backdrop-blur-lg rounded-xl py-4 shadow-md">
-                <div className="text-4xl font-bold text-yellow-500 mb-1">15+</div>
-                <div className="text-sm text-black/70">Years Experience</div>
+              <div className="
+                relative
+                w-[240px]
+                h-[240px]
+                rounded-2xl
+                overflow-hidden
+                border-2 border-yellow-400
+                shadow-xl
+                transition
+                duration-300
+                hover:shadow-yellow-400/40
+                hover:scale-[1.03]
+              ">
+                <Image
+                  src="/image/Sir2.jpeg"
+                  alt="Founder"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              <div className="text-center bg-white/40 backdrop-blur-lg rounded-xl py-4 shadow-md">
-                <div className="text-4xl font-bold text-yellow-500 mb-1">5000+</div>
-                <div className="text-sm text-black/70">Happy Clients</div>
-              </div>
+            </motion.div>
 
-              <div className="text-center bg-white/40 backdrop-blur-lg rounded-xl py-4 shadow-md">
-                <div className="text-4xl font-bold text-yellow-500 mb-1">98%</div>
-                <div className="text-sm text-black/70">Satisfaction Rate</div>
-              </div>
 
-            </div>
+            {/* OWNER QUOTE */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              viewport={{ once: true }}
+              className="max-w-sm mx-auto"
+            >
+              <p className="text-lg italic text-black/80 leading-relaxed">
+                "Astrology is not about predicting destiny,
+                but understanding the cosmic energies guiding
+                our life journey."
+              </p>
 
-            {/* Button */}
-            <button className="mt-8 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-full transition">
-              Book Your Consultation
-            </button>
+              <p className="mt-4 text-yellow-500 font-semibold">
+                — Founder, Utkala Gems
+              </p>
+            </motion.div>
 
-          </motion.div>
+          </div>
 
         </div>
+
       </div>
 
     </section>
