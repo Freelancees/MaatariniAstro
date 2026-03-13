@@ -1,4 +1,3 @@
-
 'use client'
 
 import { motion } from 'framer-motion'
@@ -13,112 +12,118 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
+        {/* HEADING ABOVE BOX */}
+        <h2 className="text-4xl font-bold text-gray-900 mb-10">
+          About Utkala Gems
+        </h2>
+
         {/* 70 / 30 GRID */}
-        <div className="grid lg:grid-cols-[7fr_3fr] gap-16 items-start">
+        <div className="grid lg:grid-cols-[7fr_3fr] gap-14 items-stretch">
 
           {/* LEFT SIDE */}
-          <div className="space-y-12">
+          <div className="space-y-10">
 
-            {/* ABOUT TEXT */}
+            {/* ABOUT CARD */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="bg-white/40 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-white/30"
             >
-              <h2 className="text-5xl font-bold text-black mb-6">
-                About Utkala Gems
-              </h2>
 
-              <p className="text-lg text-black/80 leading-relaxed mb-4">
-                Welcome to Utkala Gems, where ancient wisdom meets modern
-                understanding. Based in the spiritual city of Bhubaneswar,
-                we guide individuals using the sacred knowledge of Vedic
-                astrology and gemstone science.
+              <p className="text-gray-800 leading-relaxed mb-5 text-lg">
+                Welcome to <span className="font-semibold">Utkala Gems</span>, where ancient wisdom
+                meets modern understanding. Based in the spiritual city of
+                Bhubaneswar, we guide individuals using the sacred knowledge
+                of Vedic astrology and gemstone science.
               </p>
 
-              <p className="text-lg text-black/80 leading-relaxed">
-                Our mission is to provide clarity and direction in life
-                through authentic astrology consultations, personalized
-                gemstone recommendations, and powerful spiritual remedies
-                aligned with your birth chart.
+              <p className="text-gray-800 leading-relaxed text-lg">
+                Our mission is to provide clarity and direction in life through
+                authentic astrology consultations, personalized gemstone
+                recommendations, and powerful spiritual remedies aligned
+                with your birth chart.
               </p>
             </motion.div>
 
 
-            {/* BIG OM IMAGE */}
+            {/* COSMIC IMAGE */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="relative w-full h-[320px] rounded-2xl overflow-hidden border-2 border-yellow-400 shadow-lg"
+              className="relative w-full h-[360px] rounded-3xl overflow-hidden shadow-2xl border border-yellow-400/40"
             >
               <Image
-                src="/image/om.png"
-                alt="Om Symbol"
+                src="/image/omm image.jpg"
+                alt="Cosmic Energy"
                 fill
-                className="object-contain p-10"
+                className="object-cover"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </motion.div>
 
           </div>
 
 
-
           {/* RIGHT SIDE */}
-          <div className="space-y-8 text-center">
+          <div className="h-full">
 
-            {/* OWNER PHOTO */}
+            {/* FOUNDER CARD */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="flex justify-center"
+              className="bg-white/40 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/30 text-center h-full flex flex-col justify-between"
             >
 
-              <div className="
-                relative
-                w-[240px]
-                h-[240px]
-                rounded-2xl
-                overflow-hidden
-                border-2 border-yellow-400
-                shadow-xl
-                transition
-                duration-300
-                hover:shadow-yellow-400/40
-                hover:scale-[1.03]
-              ">
-                <Image
-                  src="/image/Sir2.jpeg"
-                  alt="Founder"
-                  fill
-                  className="object-cover"
-                />
+              <div>
+
+                {/* Founder Image */}
+                <div className="flex justify-center mb-4">
+                  <div className="relative w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg">
+                    <Image
+                      src="/image/Sir2.jpeg"
+                      alt="Founder"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* NAME BELOW IMAGE */}
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Niranjan Mahanta
+                </h3>
+
+                <p className="text-yellow-500 font-medium mb-5">
+                  Founder, Utkala Gems
+                </p>
+
+                {/* Quote */}
+                <p className="text-gray-800 italic leading-relaxed mb-6">
+                  ❝ Astrology is not about predicting destiny,
+                  but understanding the cosmic energies guiding
+                  our life journey. ❞
+                </p>
+
               </div>
 
-            </motion.div>
-
-
-            {/* OWNER QUOTE */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-              className="max-w-sm mx-auto"
-            >
-              <p className="text-lg italic text-black/80 leading-relaxed">
-                "Astrology is not about predicting destiny,
-                but understanding the cosmic energies guiding
-                our life journey."
+              {/* Bottom Text */}
+              <p className="text-gray-700 leading-relaxed text-sm">
+                With decades of experience in Vedic astrology and gemstone
+                consultation, our founder has guided thousands of individuals
+                towards clarity, harmony, and success. The vision of Utkala
+                Gems is to combine traditional astrological wisdom with
+                modern understanding, helping people make confident
+                decisions in career, relationships, health, and spiritual
+                growth.
               </p>
 
-              <p className="mt-4 text-yellow-500 font-semibold">
-                — Founder, Utkala Gems
-              </p>
             </motion.div>
 
           </div>
