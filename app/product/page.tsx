@@ -180,7 +180,7 @@ export default function ProductGrid() {
         </section>
 
         {categories.map((category, catIndex)=>(
-          <section key={catIndex} className="w-full mb-24">
+          <section key={catIndex} id={category.folder} className="w-full mb-24 scroll-mt-32">
 
             <h2 className="text-3xl md:text-4xl font-bold mb-10 border-b border-black/10 pb-4 text-black">
               {category.title}
@@ -215,7 +215,6 @@ export default function ProductGrid() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
 
-                    {/* sparkle overlay */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 sparkle pointer-events-none"/>
                   </div>
 
@@ -255,7 +254,6 @@ export default function ProductGrid() {
           </section>
         ))}
 
-        {/* CTA */}
         <section className="w-full text-center mt-24">
 
           <motion.h3

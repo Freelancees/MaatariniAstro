@@ -9,6 +9,8 @@ import Contact from '@/components/Contact'
 import CelestialPicks from '@/components/CelestialPicks'           
 import ProductsSection from '@/components/Product'
 import WhatsAppButton from "@/components/WhatsAppButton"
+import BestSellingSection from "@/components/BestSellingSection"
+import NewArrivalsSection from '@/components/NewArrivalsSection'
 
 export default function Home() {
   return (
@@ -62,8 +64,10 @@ export default function Home() {
        
         <Hero />
         <CelestialPicks />
-        <Services />
+        <NewArrivalsSection />
+        <BestSellingSection />
         <ProductsSection />
+        <Services />
         <About />
         <Testimonials />
         <Contact />

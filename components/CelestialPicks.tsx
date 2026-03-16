@@ -6,16 +6,14 @@ import Image from "next/image"
 import Link from "next/link"
 
 const products = [
-  { name: "Rudraksha Mala", img: "/image/rudraksha.jpg", back: "Enhances spiritual energy and meditation focus." },
-  { name: "Navagraha Yantra", img: "/image/yantra.jpg", back: "Balances the nine planetary energies in life." },
-  { name: "Gemstone Bracelet", img: "/image/gemstone.jpg", back: "Harness planetary vibrations with gemstones." },
-  { name: "Vastu Pyramid", img: "/image/pyramid.jpg", back: "Improves energy balance in home & workspace." },
-  { name: "Sphatik Mala", img: "/image/sphatik.jpg", back: "Promotes peace, clarity and spiritual awareness." },
-  { name: "Shree Yantra", img: "/image/shreeyantra.jpg", back: "Attracts prosperity and divine blessings." },
-  { name: "Navratna Ring", img: "/image/navratna.jpg", back: "Balances all nine planetary influences." },
-  { name: "Healing Crystal", img: "/image/crystal.jpg", back: "Supports emotional healing and positivity." },
-  { name: "Ketu Yantra", img: "/image/ketu.jpg", back: "Removes obstacles and spiritual blockages." },
-  { name: "Astrology Pendant", img: "/image/pendant.jpg", back: "Protective charm aligned with cosmic energies." },
+  { name: "Feng Shui Items", link: "/product#fengshui", img: "/image/fengsui.png", back: "Removes obstacles and spiritual blockages." },
+  { name: "Crystals", link: "/product#crystals", img: "/image/crystals/5.jpg", back: "Balances the nine planetary energies in life." },
+  { name: "Gemstone Bracelet", link: "/product#bracelets", img: "/image/gemstone.png", back: "Harness planetary vibrations with gemstones." },
+  { name: "Vastu Materials", link: "/product#vastu", img: "/image/image.png", back: "Improves energy balance in home & workspace." },
+  { name: "Sphatik Mala", link: "/product#crystals", img: "/image/mala.png", back: "Promotes peace, clarity and spiritual awareness." },
+  { name: "Gemstone", link: "/product#gemstones", img: "/image/gamestone1.png", back: "Harness planetary vibrations with gemstones." },
+  { name: "Navagraha Yantra", link: "/product#yantras", img: "/image/nabagraha.png", back: "Balances the nine planetary energies in life." },
+  { name: "Rudraksha Mala", link: "/product#rudraksha", img: "/image/rudraksha.png", back: "Enhances spiritual energy and meditation focus." },
 ]
 
 export default function CelestialPicks() {
@@ -23,7 +21,6 @@ export default function CelestialPicks() {
   const sliderRef = useRef<HTMLDivElement>(null)
   const indicatorRef = useRef<HTMLDivElement>(null)
 
-  /* Auto Scroll */
   useEffect(() => {
 
     const slider = sliderRef.current
@@ -39,7 +36,7 @@ export default function CelestialPicks() {
       slider.scrollLeft = scroll
 
       if (indicator) {
-        indicator.style.transform = `translateX(${scroll/5}px)`
+        indicator.style.transform = `translateX(${scroll / 5}px)`
       }
 
       if (scroll >= slider.scrollWidth - slider.clientWidth) {
@@ -53,88 +50,63 @@ export default function CelestialPicks() {
   }, [])
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
 
-      {/* ⭐ Twinkling Stars */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(80)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full opacity-80 animate-pulse"
-            style={{
-              width: `${Math.random()*3}px`,
-              height: `${Math.random()*3}px`,
-              left: `${Math.random()*100}%`,
-              top: `${Math.random()*100}%`,
-              animationDelay: `${Math.random()*4}s`
-            }}
-          />
-        ))}
-      </div>
-
-      {/* ⭐ Orbit Rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
-          className="absolute w-[600px] h-[600px] border border-white/30 rounded-full"
-        >
-          <div className="absolute -top-3 left-1/2 w-6 h-6 bg-purple-400 rounded-full blur-[1px]" />
-        </motion.div>
-
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
-          className="absolute w-[800px] h-[800px] border border-yellow-200/30 rounded-full"
-        >
-          <div className="absolute -top-3 left-1/2 w-8 h-8 bg-yellow-300 rounded-full blur-[2px]" />
-        </motion.div>
-
-      </div>
-
-      {/* ⭐ Title */}
-      <div className="text-center mb-12 relative z-10">
-        <h2 className="text-3xl font-bold text-white drop-shadow-lg">
-          Celestial Picks
-        </h2>
-      </div>
-
-      {/* ⭐ Product Slider */}
       <div
         ref={sliderRef}
-        className="flex gap-8 overflow-x-scroll no-scrollbar px-8 relative z-10"
+        className="flex gap-10 overflow-x-scroll no-scrollbar px-8 relative z-10"
       >
 
         {products.map((p, i) => (
 
           <Link
-            href="/product"
+            href={p.link}
             key={i}
-            className="min-w-[240px] h-[280px] perspective"
+            className="min-w-[240px] h-[310px] perspective"
           >
 
             <div className="relative w-full h-full duration-700 preserve-3d hover:rotate-y-180">
 
-              {/* Front */}
-              <div className="absolute w-full h-full backface-hidden bg-white/30 backdrop-blur-md rounded-xl p-4 border border-white/40 shadow-xl">
+              {/* FRONT */}
+              <div className="absolute w-full h-full backface-hidden 
+              bg-white/60 backdrop-blur-xl 
+              rounded-xl p-5 
+              border border-yellow-300/40
+              shadow-lg
+              hover:shadow-[0_0_35px_rgba(255,215,0,0.45)]
+              transition-all duration-300
+              flex flex-col">
 
-                <Image
-                  src={p.img}
-                  alt={p.name}
-                  width={240}
-                  height={180}
-                  className="rounded-lg object-cover"
-                />
+                <div className="w-full h-[170px] flex items-center justify-center">
 
-                <h3 className="text-center mt-3 font-semibold text-gray-900">
-                  {p.name}
-                </h3>
+                  <Image
+                    src={p.img}
+                    alt={p.name}
+                    width={200}
+                    height={160}
+                    className="object-contain max-h-full"
+                  />
+
+                </div>
+
+                <div className="mt-4 text-center">
+
+                  <h3 className="font-semibold text-black text-sm leading-tight">
+                    {p.name}
+                  </h3>
+
+                </div>
 
               </div>
 
-              {/* Back */}
-              <div className="absolute w-full h-full rotate-y-180 backface-hidden bg-white/80 backdrop-blur-md rounded-xl p-4 flex items-center justify-center text-center text-gray-900 font-medium">
+              {/* BACK */}
+              <div className="absolute w-full h-full rotate-y-180 backface-hidden 
+              bg-white/95 backdrop-blur-md 
+              rounded-xl p-6 
+              flex items-center justify-center 
+              text-center text-black font-medium text-sm
+              border border-yellow-300/50
+              shadow-[0_0_25px_rgba(255,215,0,0.3)]">
 
                 {p.back}
 
@@ -148,21 +120,8 @@ export default function CelestialPicks() {
 
       </div>
 
-      {/* ⭐ Slider Indicator */}
-      <div className="mt-10 flex justify-center">
-
-        <div className="w-[300px] h-[4px] bg-white/30 rounded-full relative overflow-hidden">
-
-          <div
-            ref={indicatorRef}
-            className="absolute w-[80px] h-full bg-yellow-400 rounded-full transition-transform"
-          />
-
-        </div>
-
-      </div>
-
       <style jsx>{`
+
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
@@ -186,6 +145,7 @@ export default function CelestialPicks() {
         .hover\\:rotate-y-180:hover {
           transform: rotateY(180deg);
         }
+
       `}</style>
 
     </section>

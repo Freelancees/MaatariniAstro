@@ -93,7 +93,7 @@ export default function Footer() {
                   href="/services/tarot"
                   className="text-white/70 hover:text-secondary transition-colors"
                 >
-                  Tarot Reading
+                  Personal Horoscope Report
                 </Link>
               </li>
               <li>
