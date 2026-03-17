@@ -30,9 +30,9 @@ const services = [
     image: '/image/product1.jpg',
   },
   {
-    title: 'Palmistry',
+    title: 'Soil Testing',
     description: 'Read the lines of your hands to discover your destiny',
-    image: '/image/palm.png',
+    image: '/image/soil.jpg',
   },
   {
     title: 'Career Astrology',

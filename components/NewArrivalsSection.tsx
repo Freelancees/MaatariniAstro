@@ -7,16 +7,14 @@ import { motion } from 'framer-motion'
 import { Heart, ShoppingCart } from 'lucide-react'
 
 const newArrivals = [
-  { name: 'Rudraksha Bracelet', image: '/image/rudraksha.png', price: '₹599', badge: 'New' },
-  { name: 'Navgraha Yantra', image: '/image/yantra.png', price: '₹899', badge: 'New' },
-  { name: 'Healing Crystal', image: '/image/crystal.jpg', price: '₹499', badge: 'New' },
-  { name: 'Sphatik Mala', image: '/image/sphatik.png', price: '₹699', badge: 'New' },
-  { name: 'Shree Yantra', image: '/image/shreeyantra.jpg', price: '₹999', badge: 'New' },
-  { name: 'Navratna Ring', image: '/image/navratna.jpg', price: '₹1299', badge: 'New' },
-  { name: 'Ketu Yantra', image: '/image/ketu.jpg', price: '₹799', badge: 'New' },
-  { name: 'Astrology Pendant', image: '/image/pendant.jpg', price: '₹699', badge: 'New' },
-  { name: 'Vastu Pyramid', image: '/image/pyramid.jpg', price: '₹899', badge: 'New' },
-  { name: 'Gemstone Bracelet', image: '/image/gemstone.png', price: '₹599', badge: 'New' },
+  { name: 'Laxmi Pyramid', image: '/image/best selling/laxmi pyramid.png', price: '₹599', badge: 'New' },
+  { name: 'Pendulum', image: '/image/best selling/Pendulum.png', price: '₹899', badge: 'New' },
+  { name: 'Sea Salt Powder', image: '/image/best selling/Sea Salt Powder.png', price: '₹499', badge: 'New' },
+  { name: 'Money Magnet Pyrite Pyramid', image: '/image/best selling/Money Magnet Pyrite Pyramid.png', price: '₹699', badge: 'New' },
+  { name: '9 Planets Oil', image: '/image/best selling/9 Planets Oil.png', price: '₹1299', badge: 'New' },
+  { name: 'Vastu purush brahmasthan plate', image: '/image/best selling/Vastu purush brahmasthan plate.png', price: '₹999', badge: 'New' },
+  { name: 'Green Zebu Pyramid', image: '/image/best selling/Green Zebu Pyramid.png', price: '₹799', badge: 'New' },
+  { name: 'meru shree yantra', image: '/image/best selling/meru shree yantra.png', price: '₹699', badge: 'New' },
 ]
 
 export default function NewArrivalsSection() {
@@ -26,7 +24,7 @@ export default function NewArrivalsSection() {
   const scroll = (direction: string) => {
     if (!sliderRef.current) return
 
-    const scrollAmount = 300
+    const scrollAmount = 400 // increased scroll for bigger cards
 
     sliderRef.current.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -37,7 +35,7 @@ export default function NewArrivalsSection() {
   return (
     <section className="relative py-24 overflow-hidden">
 
-      {/* Cosmic Background */}
+      {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(100)].map((_, i) => (
           <div
@@ -59,13 +57,12 @@ export default function NewArrivalsSection() {
         <h2 className="text-4xl font-bold text-black mb-3">
           New Arrivals
         </h2>
-
         <p className="text-black/70">
           Fresh spiritual products just added
         </p>
       </div>
 
-      {/* Slider Controls */}
+      {/* Slider */}
       <div className="relative px-8 lg:px-16 z-10">
 
         <button
@@ -82,34 +79,33 @@ export default function NewArrivalsSection() {
           →
         </button>
 
-        {/* Slider */}
         <div
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth"
+          className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth"
         >
 
           {newArrivals.map((product, index) => (
 
             <motion.div
               key={index}
-              whileHover={{ y: -6 }}
-              className="min-w-[180px] bg-white/60 backdrop-blur-xl rounded-xl border border-yellow-300 shadow-lg hover:shadow-2xl transition relative group"
+              whileHover={{ y: -8 }}
+              className="min-w-[240px] bg-white/60 backdrop-blur-xl rounded-2xl border border-yellow-300 shadow-lg hover:shadow-2xl transition relative group"
             >
 
               {/* Badge */}
-              <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs px-2 py-1 rounded z-10">
+              <div className="absolute top-3 left-3 bg-yellow-400 text-black text-xs px-2 py-1 rounded z-10">
                 {product.badge}
               </div>
 
               {/* Wishlist */}
-              <button className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow z-10">
-                <Heart size={14} />
+              <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow z-10">
+                <Heart size={16} />
               </button>
 
               <Link href="/product">
 
                 {/* Image */}
-                <div className="relative w-full h-[140px] overflow-hidden rounded-t-xl">
+                <div className="relative w-full h-[180px] overflow-hidden rounded-t-2xl">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -119,20 +115,20 @@ export default function NewArrivalsSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-3">
+                <div className="p-4">
 
-                  <h3 className="text-sm font-semibold line-clamp-1">
+                  <h3 className="text-base font-semibold line-clamp-1">
                     {product.name}
                   </h3>
 
-                  <div className="flex items-center justify-between mt-2">
+                  <div className="flex items-center justify-between mt-3">
 
-                    <span className="font-bold text-black text-sm">
+                    <span className="font-bold text-black text-base">
                       {product.price}
                     </span>
 
-                    <button className="bg-yellow-400 p-1.5 rounded-md hover:bg-yellow-500">
-                      <ShoppingCart size={14} />
+                    <button className="bg-yellow-400 p-2 rounded-md hover:bg-yellow-500">
+                      <ShoppingCart size={16} />
                     </button>
 
                   </div>

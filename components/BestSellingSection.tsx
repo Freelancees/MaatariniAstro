@@ -7,85 +7,85 @@ import { Heart, ShoppingCart } from 'lucide-react'
 
 const bestSelling = [
   {
-    name: 'Rudraksha Mala',
+    name: '8 Directions Booster with Yantra',
     description: 'Enhances meditation energy.',
-    image: '/image/rudraksha.png',
+    image: '/image/best selling/8 Directions Booster with Yantra.png',
     price: '₹799',
     oldPrice: '₹1199',
     badge: 'Best Seller'
   },
   {
-    name: 'Navagraha Yantra',
+    name: 'Brass Trishakti',
     description: 'Balance planetary energies.',
-    image: '/image/yantra.png',
+    image: '/image/best selling/Brass Trishakti.png',
     price: '₹999',
     oldPrice: '₹1399',
     badge: 'Trending'
   },
   {
-    name: 'Gemstone Bracelet',
+    name: 'Five Element Tape',
     description: 'Planetary gemstone healing.',
-    image: '/image/gemstone.png',
+    image: '/image/best selling/Five Element Tape.png',
     price: '₹699',
     oldPrice: '₹999',
     badge: '20% OFF'
   },
   {
-    name: 'Vastu Pyramid',
+    name: 'Multipurpose Rods',
     description: 'Improves space energy flow.',
-    image: '/image/pyramid.jpg',
+    image: '/image/best selling/Multipurpose Rods.png',
     price: '₹899',
     oldPrice: '₹1299',
     badge: 'Trending'
   },
   {
-    name: 'Sphatik Mala',
+    name: 'Relationship Booster',
     description: 'Peace and spiritual clarity.',
-    image: '/image/sphatik.png',
+    image: '/image/best selling/Relationship Booster.png',
     price: '₹749',
     oldPrice: '₹1099',
     badge: 'Best Seller'
   },
-  {
-    name: 'Shree Yantra',
-    description: 'Prosperity and divine blessings.',
-    image: '/image/shreeyantra.jpg',
-    price: '₹1099',
-    oldPrice: '₹1499',
-    badge: 'Trending'
-  },
-  {
-    name: 'Navratna Ring',
-    description: 'Balances nine planets.',
-    image: '/image/navratna.jpg',
-    price: '₹1499',
-    oldPrice: '₹1999',
-    badge: 'Offer'
-  },
-  {
-    name: 'Healing Crystal',
-    description: 'Promotes positivity and healing.',
-    image: '/image/crystal.jpg',
-    price: '₹599',
-    oldPrice: '₹899',
-    badge: 'Best Seller'
-  },
-  {
-    name: 'Ketu Yantra',
-    description: 'Removes obstacles.',
-    image: '/image/ketu.jpg',
-    price: '₹699',
-    oldPrice: '₹999',
-    badge: 'Trending'
-  },
-  {
-    name: 'Astrology Pendant',
-    description: 'Cosmic protection charm.',
-    image: '/image/pendant.jpg',
-    price: '₹799',
-    oldPrice: '₹1199',
-    badge: 'Offer'
-  }
+  // {
+  //   name: 'Shree Yantra',
+  //   description: 'Prosperity and divine blessings.',
+  //   image: '/image/shreeyantra.jpg',
+  //   price: '₹1099',
+  //   oldPrice: '₹1499',
+  //   badge: 'Trending'
+  // },
+  // {
+  //   name: 'Navratna Ring',
+  //   description: 'Balances nine planets.',
+  //   image: '/image/navratna.jpg',
+  //   price: '₹1499',
+  //   oldPrice: '₹1999',
+  //   badge: 'Offer'
+  // },
+  // {
+  //   name: 'Healing Crystal',
+  //   description: 'Promotes positivity and healing.',
+  //   image: '/image/crystal.jpg',
+  //   price: '₹599',
+  //   oldPrice: '₹899',
+  //   badge: 'Best Seller'
+  // },
+  // {
+  //   name: 'Ketu Yantra',
+  //   description: 'Removes obstacles.',
+  //   image: '/image/ketu.jpg',
+  //   price: '₹699',
+  //   oldPrice: '₹999',
+  //   badge: 'Trending'
+  // },
+  // {
+  //   name: 'Astrology Pendant',
+  //   description: 'Cosmic protection charm.',
+  //   image: '/image/pendant.jpg',
+  //   price: '₹799',
+  //   oldPrice: '₹1199',
+  //   badge: 'Offer'
+  // }
 ]
 
 export default function BestSellingSection() {
