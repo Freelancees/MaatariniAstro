@@ -88,7 +88,7 @@ export default function Header() {
         {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center space-x-10">
           <NavLink href="/" label="Home" />
-          <NavLink href="/product" label="Product" />
+          <NavLink href="/products" label="Products" />
 
           {/* EXPLORE */}
           <div className="relative group">
@@ -140,7 +140,7 @@ export default function Header() {
           >
             <div className="flex flex-col px-6 py-6 space-y-5">
               <MobileLink href="/" label="Home" close={() => setIsMobileMenuOpen(false)} />
-              <MobileLink href="/product" label="Product" close={() => setIsMobileMenuOpen(false)} />
+              <MobileLink href="/products" label="Products" close={() => setIsMobileMenuOpen(false)} />
               <MobileLink href="/services" label="Our Services" close={() => setIsMobileMenuOpen(false)} />
               <MobileLink href="/horoscope" label="Daily Horoscope" close={() => setIsMobileMenuOpen(false)} />
               <MobileLink href="/blog" label="Blog" close={() => setIsMobileMenuOpen(false)} />

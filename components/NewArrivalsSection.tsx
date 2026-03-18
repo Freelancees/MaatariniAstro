@@ -7,14 +7,14 @@ import { motion } from 'framer-motion'
 import { Heart, ShoppingCart } from 'lucide-react'
 
 const newArrivals = [
-  { name: 'Laxmi Pyramid', image: '/image/best selling/laxmi pyramid.png', price: '₹599', badge: 'New' },
-  { name: 'Pendulum', image: '/image/best selling/Pendulum.png', price: '₹899', badge: 'New' },
-  { name: 'Sea Salt Powder', image: '/image/best selling/Sea Salt Powder.png', price: '₹499', badge: 'New' },
-  { name: 'Money Magnet Pyrite Pyramid', image: '/image/best selling/Money Magnet Pyrite Pyramid.png', price: '₹699', badge: 'New' },
-  { name: '9 Planets Oil', image: '/image/best selling/9 Planets Oil.png', price: '₹1299', badge: 'New' },
-  { name: 'Vastu purush brahmasthan plate', image: '/image/best selling/Vastu purush brahmasthan plate.png', price: '₹999', badge: 'New' },
-  { name: 'Green Zebu Pyramid', image: '/image/best selling/Green Zebu Pyramid.png', price: '₹799', badge: 'New' },
-  { name: 'meru shree yantra', image: '/image/best selling/meru shree yantra.png', price: '₹699', badge: 'New' },
+  { name: 'Laxmi Pyramid', slug: 'laxmi-pyramid', image: '/image/best selling/laxmi pyramid.png', price: '₹599', badge: 'New' },
+  { name: 'Pendulum', slug: 'pendulum', image: '/image/best selling/Pendulum.png', price: '₹899', badge: 'New' },
+  { name: 'Sea Salt Powder', slug: 'sea-salt-powder', image: '/image/best selling/Sea Salt Powder.png', price: '₹499', badge: 'New' },
+  { name: 'Money Magnet Pyrite Pyramid', slug: 'money-magnet-pyrite-pyramid', image: '/image/best selling/Money Magnet Pyrite Pyramid.png', price: '₹699', badge: 'New' },
+  { name: '9 Planets Oil', slug: '9-planets-oil', image: '/image/best selling/9 Planets Oil.png', price: '₹1299', badge: 'New' },
+  { name: 'Vastu purush brahmasthan plate', slug: 'vastu-purush-brahmasthan-plate', image: '/image/best selling/Vastu purush brahmasthan plate.png', price: '₹999', badge: 'New' },
+  { name: 'Green Zebu Pyramid', slug: 'green-zebu-pyramid', image: '/image/best selling/Green Zebu Pyramid.png', price: '₹799', badge: 'New' },
+  { name: 'meru shree yantra', slug: 'meru-shree-yantra', image: '/image/best selling/meru shree yantra.png', price: '₹699', badge: 'New' },
 ]
 
 export default function NewArrivalsSection() {
@@ -24,7 +24,7 @@ export default function NewArrivalsSection() {
   const scroll = (direction: string) => {
     if (!sliderRef.current) return
 
-    const scrollAmount = 400 // increased scroll for bigger cards
+    const scrollAmount = 400
 
     sliderRef.current.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
@@ -102,7 +102,7 @@ export default function NewArrivalsSection() {
                 <Heart size={16} />
               </button>
 
-              <Link href="/product">
+              <Link href={`/products/${product.slug}`}>
 
                 {/* Image */}
                 <div className="relative w-full h-[180px] overflow-hidden rounded-t-2xl">

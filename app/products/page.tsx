@@ -1,5 +1,6 @@
 "use client"
-
+import { products } from "@/lib/products"
+import Link from "next/link"
 import Image from "next/image"
 import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
@@ -35,6 +36,11 @@ const categories = [
       "Gauri Sankar Rudraksha (Nepali)",
       "Garbh Gauri Rudraksha",
       "9 Mukhi Rudraksha",
+      "5 Mukhi Rudraksha Mala",
+      "7 Mukhi Rudraksha Mala",
+      "9 Mukhi Rudraksha Mala",
+      "108 Beads Rudraksha Mala",
+      "Nepali Rudraksha Mala",
     ],
   },
   {
@@ -141,7 +147,7 @@ export default function ProductGrid() {
   return (
     <main className="relative min-h-screen w-full pt-32 pb-24 px-6 overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
 
-      {/* cosmic glow */}
+      {/* glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[650px] h-[650px] bg-white rounded-full blur-[200px] opacity-30"/>
       </div>
@@ -162,14 +168,10 @@ export default function ProductGrid() {
         ))}
       </div>
 
-      {/* floating planets */}
-      <div className="absolute w-16 h-16 bg-yellow-300 rounded-full blur-md opacity-70 top-20 left-20 animate-float"/>
-      <div className="absolute w-12 h-12 bg-yellow-200 rounded-full blur-md opacity-70 bottom-40 right-20 animate-floatSlow"/>
-
       <div className="relative z-10">
 
         {/* header */}
-        <section className="w-full text-center mb-20">
+        <section className="text-center mb-20">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black">
             Our Spiritual Products
           </h1>
@@ -180,7 +182,7 @@ export default function ProductGrid() {
         </section>
 
         {categories.map((category, catIndex)=>(
-          <section key={catIndex} id={category.folder} className="w-full mb-24 scroll-mt-32">
+          <section key={catIndex} id={category.folder} className="mb-24 scroll-mt-32">
 
             <h2 className="text-3xl md:text-4xl font-bold mb-10 border-b border-black/10 pb-4 text-black">
               {category.title}
@@ -194,26 +196,31 @@ export default function ProductGrid() {
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
             >
 
-              {category.items.map((item,index)=>(
-                <motion.div
+             {products
+  .filter((p) => p.category === category.folder)
+  .map((products, index) => (
+               <Link href={`/products/${products.slug}`}>
+  <motion.div
                   key={index}
                   variants={card}
-                  whileHover={{
-                    rotateX:6,
-                    rotateY:-6,
-                    scale:1.05
-                  }}
+                  whileHover={{ rotateX:6, rotateY:-6, scale:1.05 }}
                   className="group bg-white/60 backdrop-blur-md border border-white/40 rounded-xl overflow-hidden shadow-lg hover:shadow-yellow-200/50 transition-all duration-300"
                 >
 
-                  <div className="relative w-full h-40 overflow-hidden">
+                  {/* 🔥 AUTO FIT IMAGE SYSTEM */}
+                  <div className="relative w-full h-52 bg-white flex items-center justify-center overflow-hidden">
 
-                    <Image
-                      src={`/image/${category.folder}/${index+1}.jpg`}
-                      alt={item}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    {/* inner wrapper for better scaling */}
+                    <div className="relative w-full h-full flex items-center justify-center p-4">
+
+                      <Image
+                       src={products.images[0]}
+                       alt={products.name}
+                        fill
+                        className="object-contain transition-transform duration-500 group-hover:scale-110"
+                      />
+
+                    </div>
 
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 sparkle pointer-events-none"/>
                   </div>
@@ -221,7 +228,7 @@ export default function ProductGrid() {
                   <div className="p-3">
 
                     <h3 className="text-sm font-semibold mb-2 text-black">
-                      {item}
+                    {products.name}
                     </h3>
 
                     <ul className="text-[11px] text-black/70 space-y-1 mb-3">
@@ -229,7 +236,6 @@ export default function ProductGrid() {
                         <CheckCircle className="w-3 h-3 text-yellow-500"/>
                         Energized & Certified
                       </li>
-
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-3 h-3 text-yellow-500"/>
                         Premium Quality
@@ -246,39 +252,14 @@ export default function ProductGrid() {
 
                   </div>
 
-                </motion.div>
+                  </motion.div>
+</Link>
               ))}
 
             </motion.div>
 
           </section>
         ))}
-
-        <section className="w-full text-center mt-24">
-
-          <motion.h3
-            initial={{opacity:0,y:30}}
-            whileInView={{opacity:1,y:0}}
-            transition={{duration:0.6}}
-            className="text-3xl md:text-4xl font-bold mb-6 text-black"
-          >
-            Need Personal Astrology Guidance?
-          </motion.h3>
-
-          <p className="text-black/70 mb-8 text-lg">
-            Contact us for customized remedies and spiritual consultations.
-          </p>
-
-          <motion.a
-            whileHover={{scale:1.05}}
-            whileTap={{scale:0.95}}
-            href="/contact"
-            className="inline-block bg-yellow-400 text-black px-10 py-3 rounded-full font-semibold hover:bg-yellow-300 transition shadow-lg"
-          >
-            Contact Us
-          </motion.a>
-
-        </section>
 
       </div>
     </main>
