@@ -8,11 +8,11 @@ import Link from "next/link"
 const products = [
   { name: "Feng Shui Items", link: "/products#fengshui", img: "/image/fengsui.png", back: "Removes obstacles and spiritual blockages." },
   { name: "Crystals", link: "/products#crystals", img: "/image/crystals/5.jpg", back: "Balances the nine planetary energies in life." },
-  { name: "Gemstone Bracelet", link: "/products#bracelets", img: "/image/gemstone.png", back: "Harness planetary vibrations with gemstones." },
+  { name: "Bracelet", link: "/products#bracelets", img: "/image/gemstone.png", back: "Harness planetary vibrations with gemstones." },
   { name: "Vastu Materials", link: "/products#vastu", img: "/image/image.png", back: "Improves energy balance in home & workspace." },
   { name: "Sphatik Mala", link: "/products#rudraksha", img: "/image/mala.png", back: "Promotes peace, clarity and spiritual awareness." },
   { name: "Gemstone", link: "/products#gemstones", img: "/image/gamestone1.png", back: "Harness planetary vibrations with gemstones." },
-  { name: "Navagraha Yantra", link: "/products#yantras", img: "/image/nabagraha.png", back: "Balances the nine planetary energies in life." },
+  { name: "Yantra", link: "/products#yantras", img: "/image/nabagraha.png", back: "Balances the nine planetary energies in life." },
   { name: "Rudraksha Mala", link: "/products#rudraksha", img: "/image/rudraksha.png", back: "Enhances spiritual energy and meditation focus." },
 ]
 
@@ -86,7 +86,6 @@ export default function CelestialPicks() {
                     height={160}
                     className="object-contain max-h-full"
                   />
-
                 </div>
 
                 <div className="mt-4 text-center">
