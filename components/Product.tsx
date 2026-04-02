@@ -8,51 +8,89 @@ const categories = [
   {
     name: "Gemstones",
     slug: "gemstones",
-    image: "/image/categories/gemstones.jpg",
+    image: "/image/productcomp/Gemstone.png",
   },
   {
     name: "Rudraksha",
     slug: "rudraksha",
-    image: "/image/categories/rudraksha.jpg",
+    image: "/image/productcomp/rudrakhs.png",
   },
   {
     name: "Bracelets",
     slug: "bracelets",
-    image: "/image/categories/bracelets.jpg",
+    image: "/image/productcomp/braclet.png",
   },
   {
     name: "Vastu Materials",
     slug: "vastu",
-    image: "/image/categories/vastu.jpg",
+    image: "/image/productcomp/Vastu.png",
   },
   {
     name: "Crystals",
     slug: "crystals",
-    image: "/image/categories/crystals.jpg",
+    image: "/image/productcomp/Crystals.png",
   },
   {
     name: "Yantras",
     slug: "yantras",
-    image: "/image/categories/yantras.jpg",
+    image: "/image/productcomp/yantras.png",
   },
   {
     name: "Feng Shui",
     slug: "fengshui",
-    image: "/image/categories/fengshui.jpg",
+    image: "/image/productcomp/fengshui.png",
   },
   {
     name: "Herbs",
     slug: "herbs",
-    image: "/image/categories/herbs.jpg",
+    image: "/image/productcomp/herbs.png",
   },
   {
     name: "Mala",
     slug: "Mala",
-    image: "/image/categories/Mala.jpg",
+    image: "/image/productcomp/mala.png",
   },
 ]
 
 export default function ProductsSection() {
+
+  const firstRow = categories.slice(0, 5)
+  const secondRow = categories.slice(5, 9)
+
+  const Card = ({ category }: any) => (
+    <motion.div
+      key={category.slug}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -6 }}
+      className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100"
+    >
+      <Link href={`/products/${category.slug}`}>
+
+        {/* Image */}
+        <div className="relative w-full h-[180px] flex items-center justify-center bg-gradient-to-b from-white to-gray-50 overflow-hidden rounded-t-2xl">
+          <Image
+            src={category.image}
+            alt={category.name}
+            width={170}
+            height={170}
+            className="object-contain group-hover:scale-110 transition duration-500"
+          />
+        </div>
+
+        {/* Name */}
+        <div className="py-3 text-center">
+          <h3 className="text-sm font-semibold text-black">
+            {category.name}
+          </h3>
+        </div>
+
+      </Link>
+    </motion.div>
+  )
+
   return (
     <section className="relative py-24 overflow-hidden">
 
@@ -67,45 +105,20 @@ export default function ProductsSection() {
         </p>
       </div>
 
-      <div className="px-8 lg:px-16">
+      <div className="px-8 lg:px-16 space-y-8">
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6">
-
-          {categories.map((category, index) => (
-            <motion.div
-              key={category.slug}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition group"
-            >
-
-              <Link href={`/products/${category.slug}`}>
-
-                {/* Image */}
-                <div className="relative w-full h-[160px] overflow-hidden rounded-t-xl">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition duration-500"
-                  />
-                </div>
-
-                {/* Name */}
-                <div className="p-4 text-center">
-                  <h3 className="text-sm font-semibold text-black">
-                    {category.name}
-                  </h3>
-                </div>
-
-              </Link>
-
-            </motion.div>
+        {/* Row 1 - 5 cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          {firstRow.map((category) => (
+            <Card key={category.slug} category={category} />
           ))}
+        </div>
 
+        {/* Row 2 - 4 cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {secondRow.map((category) => (
+            <Card key={category.slug} category={category} />
+          ))}
         </div>
 
       </div>
