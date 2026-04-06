@@ -54,8 +54,8 @@ const categories = [
 
 export default function ProductsSection() {
 
-  const firstRow = categories.slice(0, 5)
-  const secondRow = categories.slice(5, 9)
+  const firstRow = categories.slice(0, 6)
+  const secondRow = categories.slice(6, 10)
 
   const Card = ({ category }: any) => (
     <motion.div
@@ -65,7 +65,7 @@ export default function ProductsSection() {
       transition={{ duration: 0.4 }}
       viewport={{ once: true }}
       whileHover={{ y: -6 }}
-      className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100"
+      className="bg-yellow-500 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 group border border-gray-100"
     >
       <Link href={`/products/${category.slug}`}>
 
@@ -92,30 +92,30 @@ export default function ProductsSection() {
   )
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-10 overflow-hidden">
 
       {/* Header */}
       <div className="text-center mb-16 px-8 lg:px-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">
+        <h2 className="text-2xl md:text-5xl font-bold mb-4 text-black">
           Our Categories
         </h2>
 
-        <p className="text-black/70 text-lg">
+        <p className="text-black/70 text-sm">
           Explore powerful spiritual categories crafted for your journey.
         </p>
       </div>
 
-      <div className="px-8 lg:px-16 space-y-8">
+      <div className="px-2 lg:px-4 space-y-2">
 
         {/* Row 1 - 5 cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1">
           {firstRow.map((category) => (
             <Card key={category.slug} category={category} />
           ))}
         </div>
 
         {/* Row 2 - 4 cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 ">
           {secondRow.map((category) => (
             <Card key={category.slug} category={category} />
           ))}

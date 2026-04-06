@@ -1,11 +1,11 @@
- 'use client'
+'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function About() {
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-2 relative overflow-hidden">
 
       {/* Zodiac background */}
       <div className="absolute inset-0 opacity-[0.04] bg-[url('/image/zodiac-bg.png')] bg-center bg-cover"></div>
@@ -18,7 +18,7 @@ export default function About() {
         </h2>
 
         {/* 70 / 30 GRID */}
-        <div className="grid lg:grid-cols-[7fr_3fr] gap-14 items-stretch">
+        <div className="grid lg:grid-cols-[7fr_3fr] gap-4 items-stretch">
 
           {/* LEFT SIDE */}
           <div className="space-y-10">

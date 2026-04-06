@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Heart, ShoppingCart } from 'lucide-react'
+import { MdArrowBackIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const newArrivals = [
   { name: 'Laxmi Pyramid', slug: 'laxmi-pyramid', image: '/image/best selling/laxmi pyramid.png', price: '₹599', badge: 'New' },
@@ -42,11 +44,11 @@ export default function NewArrivalsSection() {
             key={i}
             className="absolute bg-white rounded-full opacity-70 animate-pulse"
             style={{
-              width: `${Math.random()*3}px`,
-              height: `${Math.random()*3}px`,
-              left: `${Math.random()*100}%`,
-              top: `${Math.random()*100}%`,
-              animationDelay: `${Math.random()*4}s`
+              width: `${Math.random() * 3}px`,
+              height: `${Math.random() * 3}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`
             }}
           />
         ))}
@@ -63,25 +65,25 @@ export default function NewArrivalsSection() {
       </div>
 
       {/* Slider */}
-      <div className="relative px-8 lg:px-16 z-10">
+      <div className="relative px-0 lg:px-16 z-10">
 
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-3 rounded-full z-20"
+          className="absolute left-2 top-1/2  bg-white shadow-lg p-3 rounded-full z-20"
         >
-          ←
+          <MdArrowBackIos size={16} />
         </button>
 
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-3 rounded-full z-20"
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-lg p-3 rounded-full z-20"
         >
-          →
+          <MdArrowForwardIos size={16} />
         </button>
 
         <div
           ref={sliderRef}
-          className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth"
+          className="flex gap-2 overflow-x-auto no-scrollbar scroll-smooth"
         >
 
           {newArrivals.map((product, index) => (
@@ -89,7 +91,7 @@ export default function NewArrivalsSection() {
             <motion.div
               key={index}
               whileHover={{ y: -8 }}
-              className="min-w-[240px] bg-white/60 backdrop-blur-xl rounded-2xl border border-yellow-300 shadow-lg hover:shadow-2xl transition relative group"
+              className="min-w-[240px] bg-white/60 backdrop-blur-xl rounded-2xl border border-yellow-300 shadow-lg hover:shadow-2xl transition relative group my-4"
             >
 
               {/* Badge */}

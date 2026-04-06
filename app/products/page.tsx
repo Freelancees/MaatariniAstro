@@ -35,13 +35,13 @@ const card = {
 
 export default function ProductGrid() {
   return (
-    <main className="relative min-h-screen w-full pt-32 pb-24 px-6 overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
+    <main className="relative min-h-screen w-full pt-32 pb-24 px-2 overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
 
       <div className="relative z-10">
 
         {/* header */}
         <section className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-black">
+          <h1 className="text-2xl md:text-3xl font-bold mb-6 text-black">
             Our Spiritual Products
           </h1>
         </section>
@@ -58,7 +58,7 @@ export default function ProductGrid() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1"
             >
 
               {products
@@ -72,7 +72,7 @@ export default function ProductGrid() {
 
                     <motion.div
                       variants={card}
-                      whileHover={{ scale: 1.05 }}
+                      // whileHover={{ scale: 1.05 }}
                       className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition"
                     >
 
@@ -95,17 +95,17 @@ export default function ProductGrid() {
 
                         <ul className="text-[11px] text-gray-600 space-y-1 mb-3">
                           <li className="flex items-center gap-2">
-                            <CheckCircle className="w-3 h-3 text-yellow-500"/>
+                            <CheckCircle className="w-3 h-3 text-yellow-500" />
                             Energized & Certified
                           </li>
                           <li className="flex items-center gap-2">
-                            <CheckCircle className="w-3 h-3 text-yellow-500"/>
+                            <CheckCircle className="w-3 h-3 text-yellow-500" />
                             Premium Quality
                           </li>
                         </ul>
 
-                        <button className="w-full bg-yellow-400 text-black py-1.5 rounded-full text-xs font-semibold hover:bg-yellow-300 transition">
-                          Buy Now
+                        <button className="w-full bg-yellow-400 text-black py-3 rounded-full text-sm font-semibold hover:bg-yellow-300 transition shadow-lg">
+                          Add to cart
                         </button>
 
                       </div>

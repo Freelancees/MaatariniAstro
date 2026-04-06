@@ -36,11 +36,10 @@ export default function Header() {
       initial={{ y: 0 }}
       animate={{ y: showHeader ? 0 : -120 }}
       transition={{ duration: 0.35 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/70 backdrop-blur-lg shadow-md'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-blue-300/70 backdrop-blur-lg shadow-md'
+        : 'bg-transparent'
+        }`}
     >
       {/* NAVBAR */}
       <nav className="w-full flex items-center justify-between px-8 py-4">
@@ -75,10 +74,11 @@ export default function Header() {
 
           {/* BRAND TEXT */}
           <div className="leading-tight">
-            <div className="text-lg font-semibold tracking-wide text-black">
+            <div className="text-lg font-semibold tracking-wide text-white" style={{ textShadow: "0px 4px 8px rgba(0,0,0,10)" }}>
               Utkala
             </div>
-            <div className="text-xl font-bold tracking-widest text-yellow-600">
+            <div className="text-xl font-bold tracking-widest text-yellow-400"
+              style={{ textShadow: "0px 4px 8px rgba(0,0,0,10)" }}>
               Gems
             </div>
           </div>
@@ -86,17 +86,17 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP MENU */}
-        <div className="hidden md:flex items-center space-x-10">
+        <div className="hidden md:flex items-center space-x-10 bg-slate-800/70 backdrop-blur-lg px-6 py-3 rounded-full shadow-lg border border-white/30">
           <NavLink href="/" label="Home" />
           <NavLink href="/products" label="Products" />
 
           {/* EXPLORE */}
           <div className="relative group">
-            <button className="text-black hover:text-yellow-500 font-semibold transition-colors">
+            <button className="text-white hover:text-yellow-500 font-semibold transition-colors">
               Explore
             </button>
 
-            <div className="absolute top-full left-0 mt-2 w-52 bg-white/95 backdrop-blur-lg rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            <div className="absolute top-full left-0 mt-2 w-52 bg-black/95 backdrop-blur-lg rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <DropdownLink href="/services" label="Our Services" />
               <DropdownLink href="/horoscope" label="Daily Horoscope" />
               <DropdownLink href="/blog" label="Blog" />
@@ -109,7 +109,7 @@ export default function Header() {
 
         {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-black"
+          className="md:hidden text-white hover:text-yellow-500 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg
@@ -120,9 +120,9 @@ export default function Header() {
             viewBox="0 0 24 24"
           >
             {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
@@ -160,7 +160,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="text-black hover:text-yellow-500 font-semibold transition-colors"
+      className="text-white hover:text-yellow-500 font-semibold transition-colors"
     >
       {label}
     </Link>
@@ -171,7 +171,7 @@ function DropdownLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="block px-4 py-3 text-black hover:bg-yellow-400/20 transition-colors"
+      className="block px-4 py-3 text-white hover:bg-yellow-400/20 transition-colors"
     >
       {label}
     </Link>
@@ -191,7 +191,7 @@ function MobileLink({
     <Link
       href={href}
       onClick={close}
-      className="text-black text-lg font-medium hover:text-yellow-500 transition-colors"
+      className="text-white text-lg font-medium hover:text-yellow-500 transition-colors"
     >
       {label}
     </Link>
