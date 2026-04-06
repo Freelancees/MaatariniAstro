@@ -8,7 +8,7 @@ const categories = [
   {
     name: "Gemstones",
     slug: "gemstones",
-    image: "/image/productcomp/Gemstone.png",
+    image: "/image/productcomp/gemstone.png",
   },
   {
     name: "Rudraksha",
