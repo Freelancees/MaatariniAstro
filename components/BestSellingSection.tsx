@@ -55,7 +55,7 @@ const bestSelling = [
 
 export default function BestSellingSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-0 overflow-hidden">
 
       {/* Stars */}
       <div className="absolute inset-0 pointer-events-none">
@@ -64,11 +64,11 @@ export default function BestSellingSection() {
             key={i}
             className="absolute bg-white rounded-full opacity-70 animate-pulse"
             style={{
-              width: `${Math.random()*3}px`,
-              height: `${Math.random()*3}px`,
-              left: `${Math.random()*100}%`,
-              top: `${Math.random()*100}%`,
-              animationDelay: `${Math.random()*4}s`
+              width: `${Math.random() * 3}px`,
+              height: `${Math.random() * 3}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`
             }}
           />
         ))}
@@ -76,7 +76,7 @@ export default function BestSellingSection() {
 
       {/* Header */}
       <div className="text-center mb-16 relative z-10 px-8">
-        <h2 className="text-4xl md:text-5xl font-bold mb-3 text-black">
+        <h2 className="text-2xl md:text-3xl font-bold mb-3 text-black">
           Best Selling Products
         </h2>
         <p className="text-black/70">
@@ -84,8 +84,8 @@ export default function BestSellingSection() {
         </p>
       </div>
 
-      <div className="px-8 lg:px-16 relative z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="px-0 lg:px-2 relative z-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
 
           {bestSelling.map((product, index) => (
             <motion.div

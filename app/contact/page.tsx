@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function Contact() {
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
 
       {/* Soft glow background */}
       <div className="absolute inset-0">
@@ -42,7 +42,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
               Ready to Discover Your Path?
             </h2>
 
@@ -52,7 +52,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-12">
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -150,6 +150,7 @@ export default function Contact() {
                   <option>Numerology</option>
                   <option>Vastu Shastra</option>
                   <option>Gemstone Consultation</option>
+                  <option>Others</option>
                 </select>
               </div>
 
