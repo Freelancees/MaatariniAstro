@@ -23,7 +23,7 @@ export const gemstoneSubcategories = [
   "moon-stone","malachite","onyx","green-tourmaline","peridot",
   "green-garnet","green-aventurine","green-fluorite","aquamarine",
   "golden-zircon","yellow-citrine","yellow-topaz","yellow-sapphire",
-"white-zircon","white-sapphire","diamond","lemon-quartz","white-topaz","white-coral",
+  "white-zircon","white-sapphire","diamond","lemon-quartz","white-topaz","white-coral",
   "opal","moissanite","amethyst","blue-topaz","iolite","blue-sapphire",
   "cats-eye","gomed","blue-zircon","lapis-lazuli","amber","pink-sapphire",
   "pitambari-neelam","turquoise","smoky-quartz","green-sapphire",
@@ -128,24 +128,10 @@ export const products: Product[] = [
   { slug: "three-legged-toad", name: "Three Legged Toad", category: "fengshui", price: 899, images: ["/image/fengshui/10.jpg"], description: "Brings wealth and protects from financial loss.", specifications: [] },
 
   {
-    slug: "laxmi-pyramid",
-    name: "Laxmi Pyramid",
-    category: "vastu",
-    price: 599,
-    images: ["/image/best selling/laxmi pyramid.png"],
-    description: "Brings wealth and prosperity.",
-    specifications: [],
-    isNew: true,
+    slug: "laxmi-pyramid", name: "Laxmi Pyramid", category: "vastu", price: 599, images: ["/image/best selling/laxmi pyramid.png"], description: "Brings wealth and prosperity.", specifications: [], isNew: true,
   },
   {
-    slug: "sea-salt-powder",
-    name: "Sea Salt Powder",
-    category: "vastu",
-    price: 499,
-    images: ["/image/best selling/Sea Salt Powder.png"],
-    description: "Removes negative energy.",
-    specifications: [],
-    isNew: true,
+    slug: "sea-salt-powder", name: "Sea Salt Powder", category: "vastu", price: 499, images: ["/image/best selling/Sea Salt Powder.png"], description: "Removes negative energy.", specifications: [], isNew: true,
   },
   {
     slug: "9-planets-oil",
@@ -256,7 +242,7 @@ export const products: Product[] = [
   slug: "ruby-manik-5-carat",
   name: "Ruby / Manik (5 Carat)",
   category: "gemstones",
-  subcategory: "ruby-manik", // must match list above
+  subcategory: "ruby-manik", 
   price: 5000,
   images: ["/image/gemstones/ruby.jpg"],
   description: "Powerful Sun stone",
@@ -283,8 +269,6 @@ export const products: Product[] = [
   description: "Rare high-quality pearl",
   specifications: [],
 },
-
-
 
 // BEADS
 {
@@ -608,7 +592,6 @@ export const products: Product[] = [
   specifications: [],
 },
 
-
 //vastu section
 {
   slug: "stainless-steel-vastu-strip",
@@ -804,7 +787,6 @@ export const products: Product[] = [
   description: "Protection from evil eye.",
   specifications: [],
 },
-
 
 // 🔵 MALA (DIRECT CATEGORY - NO SUBCATEGORY)
 {
