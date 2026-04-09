@@ -13,8 +13,7 @@ const categories = [
   { name: "Yantras", slug: "yantras", image: "/image/productcomp/yantras.png" },
   { name: "Feng Shui", slug: "fengshui", image: "/image/productcomp/fengshui.png" },
   { name: "Herbs", slug: "herbs", image: "/image/productcomp/herbs.png" },
-  { name: "Mala", slug: "mala", image: "/image/productcomp/mala.png" },
-]
+  ]
 
 export default function ProductsSection() {
 

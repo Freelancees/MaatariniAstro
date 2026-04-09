@@ -1,26 +1,26 @@
 'use client'
 
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
-export default function About() {
+export default function AboutUsPage() {
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6] text-[#1a0f0a]">
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6] text-black">
 
-      {/* Soft Cosmic Glow */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white/40 rounded-full blur-[150px]" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-300/40 rounded-full blur-[150px]" />
+      <Header />
 
-      {/* Floating Planets */}
-      <div className="absolute top-20 left-20 w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full blur-sm opacity-70 animate-pulse" />
-      <div className="absolute bottom-24 right-24 w-24 h-24 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full blur-sm opacity-70 animate-pulse" />
+      {/* Soft Glow Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[700px] h-[700px] bg-white rounded-full blur-[200px] opacity-30" />
+      </div>
 
       {/* Stars */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full opacity-70"
+            className="absolute bg-white rounded-full opacity-80"
             style={{
               width: `${Math.random() * 3}px`,
               height: `${Math.random() * 3}px`,
@@ -31,48 +31,41 @@ export default function About() {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* Floating Planets */}
+      <div className="absolute top-40 left-20 w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full blur-sm opacity-70 animate-pulse"></div>
+      <div className="absolute bottom-40 right-20 w-20 h-20 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full blur-sm opacity-70 animate-pulse"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      {/* HERO */}
+      <section className="pt-32 pb-20 relative z-10">
+        <div className="container mx-auto px-6">
 
-          {/* IMAGE */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="relative"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="relative h-[520px] rounded-3xl overflow-hidden border border-white/40 shadow-2xl bg-white/30 backdrop-blur-lg">
 
-              <div className="w-full h-full flex items-center justify-center">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#1a0f0a]">
+              About Utkala Gems
+            </h1>
 
-                <div className="text-center">
-                  <div className="text-8xl mb-6">🕉️</div>
-                  <p className="text-3xl font-semibold text-orange-500">
-                    Utkal Gems
-                  </p>
-                </div>
+            <p className="text-xl md:text-2xl text-black/70">
+              Illuminating Your Path Through Ancient Cosmic Wisdom
+            </p>
 
-              </div>
-
-              {/* Decorative Corners */}
-              <div className="absolute top-6 left-6 w-16 h-16 border-t-4 border-l-4 border-orange-400" />
-              <div className="absolute bottom-6 right-6 w-16 h-16 border-b-4 border-r-4 border-orange-400" />
-            </div>
           </motion.div>
 
-          {/* CONTENT */}
-          <motion.div
+        </div>
+      </section>
+<motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9 }}
           >
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-              About Utkala Gems
-            </h2>
+          
 
             <div className="space-y-5 text-lg text-black/70 leading-relaxed">
 
@@ -136,11 +129,153 @@ export default function About() {
             </button>
 
           </motion.div>
+      {/* STORY */}
+      <section className="py-20 relative z-10">
+        <div className="container mx-auto px-6 max-w-4xl">
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+
+            <h2 className="text-4xl font-bold text-[#1a0f0a] mb-8">
+              Our Story
+            </h2>
+
+            <div className="space-y-6 text-lg text-black/70 leading-relaxed">
+
+              <p>
+                Founded in the spiritual city of Bhubaneswar, Utkala Gems
+                was born from a deep reverence for Vedic knowledge and a calling
+                to help people navigate life's complexities through astrology.
+              </p>
+
+              <p>
+                Our journey began over 15 years ago with a mission to provide
+                authentic and meaningful astrological guidance to people
+                seeking clarity and direction.
+              </p>
+
+              <p>
+                Today we have helped thousands of individuals understand
+                their life path using traditional Vedic astrology methods.
+              </p>
+
+            </div>
+
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* MISSION & VISION */}
+      <section className="py-20 relative z-10">
+        <div className="container mx-auto px-6 max-w-6xl">
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-10 shadow-lg"
+            >
+
+              <div className="text-5xl mb-4">🎯</div>
+
+              <h3 className="text-3xl font-bold mb-4 text-[#1a0f0a]">
+                Our Mission
+              </h3>
+
+              <p className="text-black/70">
+                To empower individuals with cosmic insights that illuminate
+                their life path and help them make better decisions.
+              </p>
+
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-10 shadow-lg"
+            >
+
+              <div className="text-5xl mb-4">🔮</div>
+
+              <h3 className="text-3xl font-bold mb-4 text-[#1a0f0a]">
+                Our Vision
+              </h3>
+
+              <p className="text-black/70">
+                To become the most trusted name in Vedic astrology while
+                preserving ancient knowledge and helping modern seekers.
+              </p>
+
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="py-20 relative z-10">
+
+        <div className="container mx-auto px-6 max-w-6xl">
+
+          <div className="text-center mb-14">
+            <h2 className="text-5xl font-bold text-[#1a0f0a]">
+              Our Core Values
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {[
+              { title: "Authenticity", icon: "✨", desc: "Traditional Vedic astrology practiced with integrity." },
+              { title: "Compassion", icon: "❤️", desc: "Every consultation guided with empathy." },
+              { title: "Accuracy", icon: "🎯", desc: "Precise readings through detailed chart analysis." },
+              { title: "Confidentiality", icon: "🔒", desc: "Your personal details remain private." },
+              { title: "Empowerment", icon: "💪", desc: "Helping you take control of your life path." },
+              { title: "Excellence", icon: "⭐", desc: "Continuous improvement and learning." }
+            ].map((value, index) => (
+
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-xl p-8 text-center shadow-lg hover:-translate-y-2 transition"
+              >
+
+                <div className="text-5xl mb-4">{value.icon}</div>
+
+                <h3 className="text-xl font-semibold mb-3 text-[#1a0f0a]">
+                  {value.title}
+                </h3>
+
+                <p className="text-black/70">
+                  {value.desc}
+                </p>
+
+              </motion.div>
+
+            ))}
+
+          </div>
 
         </div>
 
-      </div>
+      </section>
 
-    </section>
+      <Footer />
+
+    </main>
   )
 }
