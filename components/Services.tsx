@@ -55,7 +55,6 @@ const services = [
 export default function Services() {
   return (
     <section className="py-20">
-
       <div className="container mx-auto px-4">
 
         {/* 🔥 HEADER */}
@@ -76,12 +75,28 @@ export default function Services() {
         </motion.div>
 
         {/* 🎯 GRID */}
-        <div className="flex flex-wrap justify-center gap-8">
-
+        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard service={service} index={index} key={index} />
           ))}
+        </div>
 
+        {/* 🔘 VIEW ALL BUTTON */}
+        <div className="flex justify-center mt-12">
+          <Link href="/services">
+            <button className="
+              px-8 py-3
+              rounded-full
+              bg-yellow-400 text-black
+              font-semibold
+              hover:bg-yellow-300
+              hover:scale-105
+              transition-all duration-300
+              shadow-md hover:shadow-lg
+            ">
+              View All Services
+            </button>
+          </Link>
         </div>
 
       </div>
@@ -104,7 +119,7 @@ function ServiceCard({ service, index }: any) {
       w-full
       sm:w-[45%]
       md:w-[30%]
-      lg:w-[22%]
+      lg:w-[18%]
       bg-white/70
       backdrop-blur-lg
       rounded-2xl
@@ -118,7 +133,6 @@ function ServiceCard({ service, index }: any) {
 
       {/* 🖼 IMAGE */}
       <div className="relative h-44 overflow-hidden">
-
         <Image
           src={service.image}
           alt={service.title}
@@ -126,9 +140,7 @@ function ServiceCard({ service, index }: any) {
           className="object-cover group-hover:scale-110 transition-transform duration-500"
         />
 
-        {/* subtle overlay */}
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
-
       </div>
 
       {/* 📄 CONTENT */}
@@ -143,23 +155,6 @@ function ServiceCard({ service, index }: any) {
             {service.description}
           </p>
         </div>
-
-        {/* 🚀 CTA */}
-        <Link href="/contact">
-          <button className="
-            mt-4 w-full
-            py-2.5
-            rounded-full
-            bg-yellow-400 text-black
-            font-semibold
-            hover:bg-yellow-300
-            hover:scale-[1.03]
-            transition-all duration-300
-            shadow-md hover:shadow-lg
-          ">
-            Contact Us
-          </button>
-        </Link>
 
       </div>
 
