@@ -1,101 +1,196 @@
 'use client'
 
 import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { Sparkles } from 'lucide-react'
+import Link from 'next/link'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-}
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.2 } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
 export default function ServicesPage() {
+
+  const [activeImage, setActiveImage] = useState<string | null>(null)
 
   const services = [
     {
       title: "Vedic Astrology Consultation",
       image: "/image/vedic.jpg",
       content: [
-        "Ancient Jyotish Shastra reveals your life path through planetary positions.",
-        "Your Kundli acts as a cosmic blueprint of your destiny and karma.",
-        "Get clarity on career, finance, relationships, and major life decisions.",
-        "Understand the right timing (Muhurat) to take powerful actions."
+        "Ancient Jyotish Shastra reveals your life path.",
+        "Your Kundli is your cosmic blueprint.",
+      ],
+      description: [
+        "Vedic Astrology is a timeless science that decodes the influence of planetary movements on human life. Through precise birth chart analysis, we uncover patterns that shape your destiny, karma, and life events.",
+        "This consultation helps you make confident decisions by understanding the right timing, opportunities, and challenges ahead. It provides clarity in relationships, career, finances, and personal growth."
+      ],
+      extra: [
+        "Marriage & Kundli Matching",
+        "New Jatak Creation",
+        "Career Guidance",
+        "Business Growth",
+        "Love Analysis",
+        "Health Predictions",
+        "Dasha Analysis",
+        "Remedies"
       ]
     },
     {
       title: "Numerology Consultation",
       image: "/image/numerology.jpg",
       content: [
-        "Numbers shape your personality, decisions, and destiny.",
-        "We analyze Life Path, Destiny, and Name Numbers.",
-        "Perfect for business naming, branding, and key decisions.",
-        "Align your life with powerful numerical vibrations."
+        "Numbers shape your destiny and personality.",
+        "Align with powerful vibrations."
+      ],
+      description: [
+        "Numerology reveals the hidden energy behind numbers that influence your life decisions, personality, and success patterns. Each number carries a vibration that can either support or block your growth.",
+        "Through name correction, number alignment, and personalized guidance, we help you tune into the right frequency for success, health, and prosperity."
+      ],
+      extra: [
+        "Name Correction",
+        "Phone Number Alignment",
+        "Business Naming",
+        "Car Number Selection",
+        "Health Numbers",
+        "Aura Correction",
+        "Lucky Numbers",
+        "Growth Guidance"
       ]
     },
     {
       title: "Gemstone Consultation",
       image: "/image/gamestonecol.jpg",
       content: [
-        "Gemstones enhance positive planetary energies.",
-        "Personalized recommendation based on your Kundli.",
-        "Includes metal, finger, and wearing process.",
-        "Boost confidence, luck, and protection."
+        "Enhance planetary energies with gemstones.",
+        "Boost luck and protection."
+      ],
+      description: [
+        "Gemstones act as powerful tools to strengthen weak planets and enhance positive energies in your life. When chosen correctly, they can bring confidence, success, and emotional balance.",
+        "Our consultation ensures you wear the right stone with proper activation, maximizing its benefits while avoiding negative effects."
+      ],
+      extra: [
+        "Gem Recommendation",
+        "Planet Analysis",
+        "Metal & Finger Guide",
+        "Activation Method",
+        "Compatibility Check",
+        "Substitute Stones",
+        "Energy Activation",
+        "Protection Boost"
       ]
     },
     {
       title: "Vastu Consultation",
       image: "/image/product3.jpg",
       content: [
-        "Balance the five elements in your space.",
-        "Improve energy flow in home or office.",
-        "No demolition — only smart corrections.",
-        "Enhance peace, prosperity, and success."
+        "Balance energy in your space.",
+        "Improve peace & prosperity."
+      ],
+      description: [
+        "Vastu Shastra harmonizes your living and working environment with natural energies. Proper alignment of directions and elements enhances success, health, and overall well-being.",
+        "We provide practical solutions, including soil testing and home planning, ensuring your space supports growth without requiring major structural changes."
+      ],
+      extra: [
+        "Home Vastu",
+        "Office Vastu",
+        "Soil Testing",
+        "Plot Selection",
+        "Home Planning",
+        "Room Placement",
+        "No Demolition Fix",
+        "Energy Flow Balance"
       ]
     },
     {
       title: "Career Astrology",
       image: "/image/product4.jpg",
       content: [
-        "Find your ideal career path using astrology.",
-        "Job vs business — know what suits you.",
-        "Predict growth, promotions, and timing.",
-        "Perfect for students & professionals."
+        "Find your perfect career path.",
+        "Timing is everything."
+      ],
+      description: [
+        "Choosing the right career path is one of the most important decisions in life. Astrology helps identify your natural strengths, talents, and suitable professions.",
+        "We guide you through career choices, job vs business decisions, and the perfect timing for growth, ensuring long-term success."
+      ],
+      extra: [
+        "Career Direction",
+        "Job vs Business",
+        "Govt Job Chances",
+        "Promotion Timing",
+        "Foreign Career",
+        "Skill Analysis",
+        "Education Path",
+        "Remedies"
       ]
     },
     {
       title: "Marriage Compatibility",
       image: "/image/product5.jpg",
       content: [
-        "Kundli matching using Ashta-Koota system.",
-        "Analyze emotional, financial, and life compatibility.",
-        "Detect doshas and provide remedies.",
-        "Ensure long-term harmony and stability."
+        "Match Kundlis for harmony.",
+        "Ensure long-term compatibility."
+      ],
+      description: [
+        "Marriage is a lifelong partnership, and compatibility plays a crucial role in its success. Through detailed Kundli matching, we analyze emotional, financial, and spiritual compatibility.",
+        "We also identify potential challenges and provide remedies to ensure harmony, understanding, and long-term stability."
+      ],
+      extra: [
+        "Kundli Matching",
+        "Guna Milan",
+        "Manglik Check",
+        "Emotional Match",
+        "Financial Match",
+        "Marriage Timing",
+        "Problem Detection",
+        "Remedies"
       ]
     },
     {
       title: "Astrology Remedies",
       image: "/image/product6.jpg",
       content: [
-        "Simple yet powerful solutions for life problems.",
-        "Mantras, fasting, donations, and yantras.",
-        "Reduce negative planetary effects.",
-        "Bring peace, clarity, and transformation."
+        "Simple solutions for big problems.",
+        "Transform your life."
+      ],
+      description: [
+        "Astrology remedies are powerful tools to reduce negative planetary effects and enhance positivity. These remedies are simple, practical, and deeply effective when followed correctly.",
+        "We provide personalized solutions including mantras, fasting, donations, and spiritual practices to bring balance and transformation in your life."
+      ],
+      extra: [
+        "Mantras",
+        "Fasting",
+        "Donations",
+        "Yantras",
+        "Dosha Remedies",
+        "Daily Rituals",
+        "Energy Cleansing",
+        "Spiritual Growth"
       ]
     },
     {
       title: "Land & Soil Analysis",
       image: "/image/soil.jpg",
       content: [
-        "Check land energy before construction.",
-        "Analyze soil strength and vibrations.",
-        "Ensure Vastu alignment for success.",
-        "Build on a foundation of prosperity."
+        "Check land before building.",
+        "Ensure strong foundation."
+      ],
+      description: [
+        "Before construction, it is essential to evaluate both the physical and energetic qualities of land. Soil strength and energy vibrations directly impact long-term success and stability.",
+        "Our analysis ensures your land is suitable, aligned with Vastu, and free from negative influences, helping you build on a strong and prosperous foundation."
+      ],
+      extra: [
+        "Soil Strength",
+        "Energy Testing",
+        "Land Suitability",
+        "Construction Check",
+        "Direction Check",
+        "Water Analysis",
+        "Negative Energy",
+        "Prosperity Alignment"
       ]
     }
   ]
@@ -105,89 +200,105 @@ export default function ServicesPage() {
 
       <Header />
 
-      {/* 🌟 HERO */}
-      <section className="pt-36 pb-24 text-center px-6 relative overflow-hidden">
-
-        <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/10 to-transparent" />
-
-        <motion.h1
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="text-4xl md:text-6xl font-bold leading-tight mb-6"
-        >
+      {/* HERO */}
+      <section className="pt-36 pb-24 text-center px-6">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
           Premium Astrology Services
-        </motion.h1>
+        </h1>
+        <p className="text-white/60 max-w-xl mx-auto">
+          Deep insights. Clear direction. Powerful transformation.
+        </p>
+      </section>
 
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="text-white/70 max-w-2xl mx-auto text-lg"
-        >
-          Experience deep spiritual insights with authentic astrology,
-          designed to guide your life with clarity, confidence, and success.
-        </motion.p>
+      {/* SERVICES */}
+      <section className="px-6 md:px-16 pb-20 space-y-20">
+
+        {services.map((service, i) => {
+          const reverse = i % 2 === 1
+
+          return (
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <div className={`flex flex-col md:flex-row ${reverse ? 'md:flex-row-reverse' : ''} rounded-2xl overflow-hidden border border-white/10 hover:border-yellow-400 transition`}>
+
+                {/* IMAGE */}
+                <div onClick={() => setActiveImage(service.image)} className="w-full md:w-1/2 flex items-center justify-center relative py-10 cursor-pointer">
+
+                  <div className="absolute w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full bg-yellow-400/20 blur-3xl" />
+
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ repeat: Infinity, duration: 4 }}
+                    className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-full overflow-hidden border-2 border-yellow-400/40 group"
+                  >
+                    <Image src={service.image} alt="" fill className="object-cover group-hover:scale-110 transition duration-700" />
+                  </motion.div>
+
+                </div>
+
+                {/* CONTENT */}
+                <div className="w-full md:w-1/2 bg-white/5 backdrop-blur-xl p-8 flex flex-col justify-center">
+
+                  <h2 className="text-3xl font-bold text-yellow-400 mb-4">
+                    {service.title}
+                  </h2>
+
+                  {/* SHORT POINTS */}
+                  <div className="space-y-2 mb-4">
+                    {service.content.map((t, idx) => (
+                      <p key={idx} className="text-white/70">{t}</p>
+                    ))}
+                  </div>
+
+                  {/* PARAGRAPHS */}
+                  <div className="space-y-3 mb-6">
+                    {service.description.map((p, idx) => (
+                      <p key={idx} className="text-white/60 text-sm leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+
+                  {/* EXTRA */}
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {service.extra.map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm text-white/70">
+                        <Sparkles size={14} className="text-yellow-400" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/contact">
+  <button className="mt-6 w-fit px-6 py-2 bg-yellow-500 text-black rounded-full hover:bg-yellow-400 transition">
+    Book Consultation
+  </button>
+</Link>
+                </div>
+
+              </div>
+            </motion.div>
+          )
+        })}
 
       </section>
 
-     
-{/* ✨ SERVICES (BALANCED SIZE) */}
-<motion.section
-  variants={container}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true }}
-  className="pb-20"
->
-  {services.map((service, index) => {
+      {/* MODAL */}
+      <AnimatePresence>
+        {activeImage && (
+          <motion.div onClick={() => setActiveImage(null)} className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+            <motion.div className="max-w-3xl w-full p-4">
+              <Image src={activeImage} alt="" width={800} height={600} className="rounded-xl object-contain w-full" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-    const isReverse = index % 2 === 1
-
-    return (
-      <motion.div
-        key={index}
-        variants={fadeUp}
-        className="grid md:grid-cols-2 items-center gap-10 py-12 px-6 md:px-16 border-b border-white/10"
-      >
-
-        {/* 🖼 IMAGE */}
-        <div className={`${isReverse ? 'md:order-2' : 'md:order-1'}`}>
-          <div className="relative h-[200px] md:h-[220px] rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src={service.image}
-              alt={service.title}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-
-        {/* 📝 TEXT */}
-        <div className={`${isReverse ? 'md:order-1' : 'md:order-2'}`}>
-
-          <h2 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
-            {service.title}
-          </h2>
-
-          <div className="space-y-2">
-            {service.content.slice(0, 2).map((text, i) => (
-              <p key={i} className="text-white/70 text-sm md:text-base">
-                {text}
-              </p>
-            ))}
-          </div>
-
-          <button className="mt-4 px-5 py-2 text-sm bg-yellow-500 text-black rounded-full hover:bg-yellow-400 transition">
-            Book Consultation
-          </button>
-
-        </div>
-
-      </motion.div>
-    )
-  })}
-</motion.section>
- </main>
+    </main>
   )
 }

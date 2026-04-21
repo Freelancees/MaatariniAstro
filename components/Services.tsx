@@ -7,46 +7,55 @@ import Link from 'next/link'
 const services = [
   {
     title: 'Vedic Astrology',
+    slug: 'vedic',
     description: 'Ancient wisdom to guide your life path and understand planetary influences',
     image: '/image/vedic.jpg',
   },
   {
     title: 'Numerology',
+    slug: 'numerology',
     description: 'Decode the mystical significance of numbers in your life',
     image: '/image/numerology.jpg',
   },
   {
     title: 'Gemstone Consultation',
+    slug: 'gemstone',
     description: 'Find the perfect gemstone to enhance your cosmic energy',
     image: '/image/gamestonecol.jpg',
   },
   {
+    title: 'Soil Testing',
+    slug: 'soil',
+    description: 'Understand land energy before construction',
+    image: '/image/soil.jpg',
+  },
+  {
     title: 'Vastu Consultation',
+    slug: 'vastu',
     description: 'Harmonize your space with ancient architectural principles',
     image: '/image/product3.jpg',
   },
   {
     title: 'Personal Horoscope Report',
+    slug: 'horoscope',
     description: 'Unveil hidden truths and gain clarity on your present and future',
     image: '/image/product1.jpg',
   },
   {
-    title: 'Soil Testing',
-    description: 'Understand land energy before construction',
-    image: '/image/soil.jpg',
-  },
-  {
     title: 'Career Astrology',
+    slug: 'career',
     description: 'Insights to excel in your profession',
     image: '/image/product4.jpg',
   },
   {
     title: 'Remedy Suggestions',
+    slug: 'remedies',
     description: 'Spiritual solutions & powerful rituals',
     image: '/image/product6.jpg',
   },
   {
     title: 'Marriage Horoscope',
+    slug: 'marriage',
     description: 'Compatibility & auspicious timing guidance',
     image: '/image/product5.jpg',
   },
@@ -57,7 +66,7 @@ export default function Services() {
     <section className="py-20">
       <div className="container mx-auto px-4">
 
-        {/* 🔥 HEADER */}
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,14 +83,14 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* 🎯 GRID */}
+        {/* GRID */}
         <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard service={service} index={index} key={index} />
           ))}
         </div>
 
-        {/* 🔘 VIEW ALL BUTTON */}
+        {/* VIEW ALL BUTTON */}
         <div className="flex justify-center mt-12">
           <Link href="/services">
             <button className="
@@ -104,7 +113,7 @@ export default function Services() {
   )
 }
 
-/* 💎 CARD COMPONENT */
+/* CARD COMPONENT */
 
 function ServiceCard({ service, index }: any) {
   return (
@@ -116,6 +125,7 @@ function ServiceCard({ service, index }: any) {
       whileHover={{ y: -8 }}
       className="
       group
+      relative
       w-full
       sm:w-[45%]
       md:w-[30%]
@@ -131,7 +141,13 @@ function ServiceCard({ service, index }: any) {
       "
     >
 
-      {/* 🖼 IMAGE */}
+      {/* CLICKABLE OVERLAY */}
+      <Link
+        href={`/services#${service.slug}`}
+        className="absolute inset-0 z-10"
+      />
+
+      {/* IMAGE */}
       <div className="relative h-44 overflow-hidden">
         <Image
           src={service.image}
@@ -139,13 +155,11 @@ function ServiceCard({ service, index }: any) {
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-500"
         />
-
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
       </div>
 
-      {/* 📄 CONTENT */}
+      {/* CONTENT */}
       <div className="p-5 flex flex-col justify-between h-[180px]">
-
         <div>
           <h3 className="text-lg font-semibold text-yellow-500 mb-2">
             {service.title}
@@ -155,7 +169,6 @@ function ServiceCard({ service, index }: any) {
             {service.description}
           </p>
         </div>
-
       </div>
 
     </motion.div>

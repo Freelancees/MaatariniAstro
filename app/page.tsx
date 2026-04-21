@@ -11,6 +11,7 @@ import ProductsSection from '@/components/Product'
 import WhatsAppButton from "@/components/WhatsAppButton"
 import BestSellingSection from "@/components/BestSellingSection"
 import NewArrivalsSection from '@/components/NewArrivalsSection'
+import HighlightsSection from '@/components/HighlightsSection'
 
 export default function Home() {
   return (
@@ -63,6 +64,7 @@ export default function Home() {
       <div className="relative z-10">
        
         <Hero />
+        <HighlightsSection />
         <CelestialPicks />
         <NewArrivalsSection />
         <BestSellingSection />
