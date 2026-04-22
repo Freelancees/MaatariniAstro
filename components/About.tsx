@@ -14,7 +14,7 @@ export default function About() {
 
         {/* HEADING ABOVE BOX */}
         <h2 className="text-4xl font-bold text-gray-900 mb-10">
-          About Utkala Gems
+          About Maa Tarini Astro Vision
         </h2>
 
         {/* 70 / 30 GRID */}
@@ -33,7 +33,7 @@ export default function About() {
             >
 
               <p className="text-gray-800 leading-relaxed mb-5 text-lg">
-                Welcome to <span className="font-semibold">Utkala Gems</span>, where ancient wisdom
+                Welcome to <span className="font-semibold">Maa Tarini Astro Vision</span>, where ancient wisdom
                 meets modern understanding. Based in the spiritual city of
                 Bhubaneswar, we guide individuals using the sacred knowledge
                 of Vedic astrology and gemstone science.
@@ -101,7 +101,7 @@ export default function About() {
                 </h3>
 
                 <p className="text-yellow-500 font-medium mb-5">
-                  Founder, Utkala Gems
+                  Founder, Maa Tarini Astro Vision
                 </p>
 
                 {/* Quote */}
@@ -117,8 +117,7 @@ export default function About() {
               <p className="text-gray-700 leading-relaxed text-sm">
                 With decades of experience in Vedic astrology and gemstone
                 consultation, our founder has guided thousands of individuals
-                towards clarity, harmony, and success. The vision of Utkala
-                Gems is to combine traditional astrological wisdom with
+                towards clarity, harmony, and success. The vision of Maa Tarini Astro Vision is to combine traditional astrological wisdom with
                 modern understanding, helping people make confident
                 decisions in career, relationships, health, and spiritual
                 growth.

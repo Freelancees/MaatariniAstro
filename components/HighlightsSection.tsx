@@ -37,98 +37,95 @@ export default function HighlightsRow() {
       </motion.div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-2 gap-6 px-6 md:px-10 relative z-10">
+<div className="grid md:grid-cols-2 gap-6 px-6 md:px-10 relative z-10">
 
-        {/* SOIL TEST */}
-        <motion.div
-          onClick={() => setShowCTA(true)}
-          whileHover={{ y: -10 }}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="group cursor-pointer flex flex-col h-[360px] rounded-2xl overflow-hidden 
-          bg-white/70 backdrop-blur-lg border border-white/50 
-          shadow-md hover:shadow-2xl transition-all duration-300 relative"
-        >
-          <div className="absolute inset-0 rounded-2xl border border-blue-400/20 group-hover:border-blue-500/40 transition" />
+  {/* 🌱 SOIL TEST */}
+  <motion.div
+    whileHover={{ y: -6 }}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex h-[260px] rounded-2xl overflow-hidden 
+    bg-white shadow-lg border border-gray-200"
+  >
+    {/* IMAGE LEFT */}
+    <div className="relative w-[45%] h-full">
+      <Image
+        src="/image/soiltest.jpg"
+        alt="Soil Testing"
+        fill
+        className="object-cover"
+      />
+    </div>
 
-          <div className="relative h-[55%] overflow-hidden">
-            <Image
-              src="/images/soil-test.jpg"
-              alt="Soil Testing"
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/20 transition" />
-          </div>
+    {/* TEXT RIGHT */}
+    <div className="w-[55%] p-5 flex flex-col justify-between">
+      <div>
+        <p className="text-blue-600 text-xs font-semibold mb-1">
+          🇮🇳 First Time in India
+        </p>
 
-          <div className="p-5 flex flex-col justify-center h-[45%] relative">
-            <p className="text-blue-600 text-xs font-semibold mb-1">
-              🇮🇳 First Time in India
-            </p>
-            <h3 className="text-xl font-bold mb-2 text-gray-800">
-              Soil Testing
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Advanced soil testing to analyze fertility, quality, and land potential.
-            </p>
+        <h3 className="text-lg font-bold text-gray-800 mb-2">
+          Soil Testing
+        </h3>
 
-            {/* CTA BUTTON */}
-            <AnimatePresence>
-              {showCTA && (
-                <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    router.push('/contact')
-                  }}
-                  className="mt-4 w-fit px-4 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 transition"
-                >
-                  Get Consultation
-                </motion.button>
-              )}
-            </AnimatePresence>
-          </div>
-        </motion.div>
-
-        {/* TRAINING CENTER */}
-        <motion.div
-          onClick={() => router.push('/training')}
-          whileHover={{ y: -10 }}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="group cursor-pointer flex flex-col h-[360px] rounded-2xl overflow-hidden 
-          bg-white/70 backdrop-blur-lg border border-white/50 
-          shadow-md hover:shadow-2xl transition-all duration-300 relative"
-        >
-          <div className="absolute inset-0 rounded-2xl border border-blue-400/20 group-hover:border-blue-500/40 transition" />
-
-          <div className="relative h-[55%] overflow-hidden">
-            <Image
-              src="/images/training-center.jpg"
-              alt="Training Center"
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-blue-900/20 transition" />
-          </div>
-
-          <div className="p-5 flex flex-col justify-center h-[45%]">
-            <h3 className="text-xl font-bold mb-2 text-gray-800">
-              Training Center
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Hands-on training programs designed to build skills, knowledge,
-              and real-world expertise.
-            </p>
-          </div>
-        </motion.div>
-
+        <p className="text-gray-600 text-sm">
+          Advanced soil testing to analyze fertility, quality, and land potential.
+        </p>
       </div>
+
+      <button
+        onClick={() => router.push('/contact')}
+        className="mt-3 w-fit px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+      >
+        Get Consultation
+      </button>
+    </div>
+  </motion.div>
+
+
+  {/* 🎓 TRAINING CENTER */}
+  <motion.div
+    whileHover={{ y: -6 }}
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.1 }}
+    className="flex h-[260px] rounded-2xl overflow-hidden 
+    bg-white shadow-lg border border-gray-200"
+  >
+    {/* IMAGE LEFT */}
+    <div className="relative w-[45%] h-full">
+      <Image
+        src="/image/astrotraining.jpg"
+        alt="Training Center"
+        fill
+        className="object-cover"
+      />
+    </div>
+
+    {/* TEXT RIGHT */}
+    <div className="w-[55%] p-5 flex flex-col justify-between">
+      <div>
+        <h3 className="text-lg font-bold text-gray-800 mb-2">
+          Training Center
+        </h3>
+
+        <p className="text-gray-600 text-sm">
+          Hands-on training programs designed to build skills, knowledge,
+          and real-world expertise.
+        </p>
+      </div>
+
+      <button
+        onClick={() => router.push('/training')}
+        className="mt-3 w-fit px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+      >
+        Explore Training
+      </button>
+    </div>
+  </motion.div>
+
+</div>
 
       {/* 🎯 GRADIENT ANIMATION */}
       <style jsx>{`

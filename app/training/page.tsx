@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -7,30 +8,37 @@ const courses = [
   {
     title: 'Vastu Course',
     desc: 'Learn the science of energy alignment and space harmony.',
+    image: '/image/Training/Vastu.jpg',
   },
   {
     title: 'Digital Aura Scanner Training',
     desc: 'Understand aura reading with modern digital techniques.',
+    image: '/image/Training/aura.jpg',
   },
   {
     title: '7 Chakra Training',
     desc: 'Deep dive into chakra balancing and energy healing.',
+    image: '/image/Training/7 chakra.jpg',
   },
   {
     title: 'L-Rod Training',
     desc: 'Master dowsing techniques using L-Rods.',
+    image: '/image/Training/l rod.jpg',
   },
   {
     title: 'Lecher Antenna Training',
     desc: 'Advanced energy detection using Lecher antenna tools.',
+    image: '/image/Training/lecker.jpg',
   },
   {
     title: 'Pendulum Training',
     desc: 'Learn pendulum dowsing for answers and healing.',
+    image: '/image/Training/Pendulum.jpg',
   },
   {
     title: 'Numerology Training',
     desc: 'Decode numbers and their influence on life and destiny.',
+    image: '/image/Training/numerology.jpg',
   },
 ]
 
@@ -60,27 +68,38 @@ export default function TrainingPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="group p-6 rounded-2xl bg-white/70 backdrop-blur-lg 
-            border border-white/50 shadow-md hover:shadow-xl transition-all duration-300 relative"
+            className="group rounded-2xl overflow-hidden bg-white/80 backdrop-blur-lg 
+            border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300"
           >
-            {/* Glow Border */}
-            <div className="absolute inset-0 rounded-2xl border border-blue-400/20 group-hover:border-blue-500/40 transition" />
 
-            {/* Content */}
-            <h3 className="text-xl font-semibold mb-3 text-gray-800">
-              {course.title}
-            </h3>
+            {/* IMAGE */}
+            <div className="relative w-full h-[180px] overflow-hidden">
+              <Image
+                src={course.image}
+                alt={course.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition duration-500"
+              />
+            </div>
 
-            <p className="text-gray-600 text-sm mb-5">
-              {course.desc}
-            </p>
+            {/* CONTENT */}
+            <div className="p-5">
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                {course.title}
+              </h3>
 
-            {/* CTA */}
-            <Link href="/contact">
-              <button className="text-sm px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                Enroll Now
-              </button>
-            </Link>
+              <p className="text-gray-600 text-sm mb-4">
+                {course.desc}
+              </p>
+
+              <Link href="/contact">
+                <button className="text-sm px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                  Enroll Now
+                </button>
+              </Link>
+            </div>
+
           </motion.div>
         ))}
 

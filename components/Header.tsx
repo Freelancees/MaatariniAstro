@@ -45,43 +45,37 @@ export default function Header() {
       <nav className="w-full flex items-center justify-between px-8 py-4">
 
         {/* LOGO + BRAND */}
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-4">
 
-          {/* GLOWING LOGO */}
-          <motion.div
-            animate={{
-              boxShadow: [
-                "0 0 10px rgba(255,215,0,0.3)",
-                "0 0 25px rgba(255,215,0,0.7)",
-                "0 0 10px rgba(255,215,0,0.3)",
-              ],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-            }}
-            className="rounded-full"
-          >
-            <Image
-              src="/image/logo.png"
-              alt="Utkala Gems"
-              width={60}
-              height={60}
-              className="rounded-full object-cover"
-              priority
-            />
-          </motion.div>
+  {/* LOGO */}
+  <motion.div
+  whileHover={{ scale: 1.05 }}
+  className="relative flex items-center justify-center"
+>
+  {/* YELLOW HIGHLIGHT BASE */}
+  <div className="absolute w-[90px] h-[60px] bg-yellow-400/60 rounded-full blur-xl" />
 
-          {/* BRAND TEXT */}
-          <div className="leading-tight">
-            <div className="text-lg font-semibold tracking-wide text-white" style={{ textShadow: "0px 4px 8px rgba(0,0,0,10)" }}>
-              Utkala
-            </div>
-            <div className="text-xl font-bold tracking-widest text-yellow-400"
-              style={{ textShadow: "0px 4px 8px rgba(0,0,0,10)" }}>
-              Gems
-            </div>
-          </div>
+  {/* LOGO */}
+  <Image
+    src="/image/logo1.png"
+    width={70}
+    height={70}
+    className="object-contain relative z-10"
+    alt="logo"
+  />
+</motion.div>
+
+  {/* TEXT */}
+  <div className="leading-tight">
+    <div className="text-lg md:text-xl font-semibold text-white">
+      Maa Tarini
+    </div>
+
+    <div className="text-2xl md:text-3xl font-bold 
+    bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
+      Astro Vision
+    </div>
+  </div>
 
         </Link>
 
