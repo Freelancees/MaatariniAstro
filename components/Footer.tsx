@@ -71,12 +71,12 @@ export default function Footer() {
 
               <li className="flex items-start gap-2">
                 <FaPhone className="mt-1 text-secondary" />
-                <span>+91 9938510555</span>
+                <span>+91 7325925333</span>
               </li>
 
               <li className="flex items-start gap-2">
                 <FaEnvelope className="mt-1 text-secondary" />
-                <span>info@maatariniastro.org</span>
+                <span>maatariniastrovision@gmail.com</span>
               </li>
 
               <li className="flex items-start gap-2">
