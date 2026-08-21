@@ -1,149 +1,238 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+  FaClock,
+  FaArrowRight,
+} from 'react-icons/fa'
 
 export default function Contact() {
-  return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6]">
+  const phoneNumber = '+917325925333'
+  const whatsappNumber = '917325925333'
 
-      {/* Soft glow background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-white/40 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-300/40 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: '1s' }}
-        />
+  const googleMapsUrl =
+    'https://www.google.com/maps/dir/?api=1&destination=20.3180087,85.8169136'
+
+  return (
+    <section className="py-24 md:py-20 sm:py-16 relative overflow-hidden">
+
+      {/* 🌟 Glow */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-[500px] h-[500px] bg-yellow-300 rounded-full blur-[180px] opacity-20" />
       </div>
 
-      {/* Stars */}
+      {/* ✨ Stars */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(40)].map((_, i) => (
+        {[...Array(25)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-white rounded-full opacity-70"
+            className="absolute bg-white rounded-full opacity-60 animate-pulse"
             style={{
-              width: `${Math.random() * 3}px`,
-              height: `${Math.random() * 3}px`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
             }}
           />
         ))}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto">
 
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-              Ready to Discover Your Path?
-            </h2>
+        {/* ================= HEADER ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <p className="text-yellow-600 font-semibold tracking-widest uppercase mb-3">
+            Get In Touch
+          </p>
 
-            <p className="text-xl text-black/70">
-              Book your personalized consultation today and unlock the wisdom of the cosmos
-            </p>
-          </motion.div>
+          <h2 className="text-4xl md:text-5xl font-display mb-5 bg-gradient-to-r from-yellow-500 to-yellow-300 bg-clip-text text-transparent">
+            Ready to Discover Your Path?
+          </h2>
 
-          {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-12">
+          <p className="text-lg text-black/70">
+            Book your personalized consultation and unlock cosmic wisdom
+            tailored to your journey.
+          </p>
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white/50 backdrop-blur-md rounded-xl p-6 border border-white/40 text-center shadow"
-            >
-              <div className="text-4xl mb-3">📞</div>
-              <h3 className="text-xl font-semibold text-orange-500 mb-2">Call Us</h3>
-              <p className="text-black/70">+91 98765 43210</p>
-            </motion.div>
+        {/* ================= MAIN GRID ================= */}
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+          {/* ================= LEFT ================= */}
+          <div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/50 backdrop-blur-md rounded-xl p-6 border border-white/40 text-center shadow"
+              transition={{ duration: 0.7 }}
             >
-              <div className="text-4xl mb-3">✉️</div>
-              <h3 className="text-xl font-semibold text-orange-500 mb-2">Email Us</h3>
-              <p className="text-black/70">info@maatariniastro.org</p>
+
+              <h3 className="text-2xl font-semibold text-black mb-6">
+                Connect With Us
+              </h3>
+
+              <div className="space-y-5">
+
+                {/* PHONE */}
+                <ContactItem
+                  icon={<FaPhoneAlt />}
+                  title="Call Us"
+                  value="+91 73259 25333"
+                  href={`tel:${phoneNumber}`}
+                  delay={0}
+                />
+
+                {/* EMAIL */}
+                <ContactItem
+                  icon={<FaEnvelope />}
+                  title="Email Us"
+                  value="maatariniastrovision@gmail.com"
+                  href="mailto:maatariniastrovision@gmail.com"
+                  delay={0.1}
+                />
+
+                {/* ADDRESS */}
+                <ContactItem
+                  icon={<FaMapMarkerAlt />}
+                  title="Visit Us"
+                  value="HIG-6/5, Forest Colony, BDA Colony, Chandrasekharpur, Bhubaneswar, Odisha - 751023"
+                  delay={0.2}
+                />
+
+                {/* HOURS */}
+                <ContactItem
+                  icon={<FaClock />}
+                  title="Consultation Hours"
+                  value="Contact us for available consultation timings"
+                  delay={0.3}
+                />
+
+              </div>
+
+              {/* ================= WHATSAPP ================= */}
+              <motion.a
+                href={`https://wa.me/${whatsappNumber}?text=Hello%20Maa%20Tarini%20Astro-Vision,%20I%20would%20like%20to%20book%20a%20consultation.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="mt-7 flex items-center justify-center gap-3 w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-full font-semibold transition-all hover:scale-[1.02] shadow-lg"
+              >
+                <FaWhatsapp className="text-xl" />
+                Chat With Us on WhatsApp
+              </motion.a>
+
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white/50 backdrop-blur-md rounded-xl p-6 border border-white/40 text-center shadow"
-            >
-              <div className="text-4xl mb-3">📍</div>
-              <h3 className="text-xl font-semibold text-orange-500 mb-2">Visit Us</h3>
-              <p className="text-black/70">Bhubaneswar, Odisha</p>
-            </motion.div>
+            {/* ================= MAP ================= */}
+           {/* ================= CLICKABLE MAP ================= */}
+<motion.a
+  href="https://www.google.com/maps/dir/20.2882883,85.8677929/20.3180087,85.8169136/@20.3034901,85.8016038,13z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDgxNy4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="mt-10 block overflow-hidden rounded-2xl border border-yellow-300 shadow-xl"
+>
+  <div className="h-[320px] bg-gradient-to-br from-yellow-50 via-white to-yellow-100 flex flex-col items-center justify-center text-center cursor-pointer hover:from-yellow-100 hover:to-yellow-200 transition-all">
+    
+    <FaMapMarkerAlt className="text-5xl text-yellow-500 mb-5" />
+
+    <h3 className="text-2xl font-semibold text-black mb-2">
+      Maa Tarini Astro-Vision
+    </h3>
+
+    <p className="text-black/60 max-w-md px-6">
+      HIG-6/5, Forest Colony, BDA Colony,
+      Chandrasekharpur, Bhubaneswar, Odisha - 751023
+    </p>
+
+    <div className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold transition">
+      📍 Open Directions in Google Maps →
+    </div>
+
+  </div>
+</motion.a>
 
           </div>
 
-          {/* Contact Form */}
+          {/* ================= RIGHT FORM ================= */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white/60 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/40 shadow-xl"
+            className="bg-white/50 backdrop-blur-xl rounded-2xl p-8 md:p-10 border border-yellow-300 shadow-xl"
           >
-            <form className="space-y-6">
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mb-7">
+              <h3 className="text-2xl font-semibold text-black mb-2">
+                Book Your Consultation
+              </h3>
 
-                <div>
-                  <label className="block text-black/70 mb-2 font-semibold">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:border-orange-400"
-                  />
-                </div>
+              <p className="text-black/60">
+                Fill in your details and our team will get back to you.
+              </p>
+            </div>
 
-                <div>
-                  <label className="block text-black/70 mb-2 font-semibold">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Enter your phone"
-                    className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:border-orange-400"
-                  />
-                </div>
+            <form
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault()
+              }}
+            >
 
-              </div>
+              <div className="grid md:grid-cols-2 gap-6">
 
-              <div>
-                <label className="block text-black/70 mb-2 font-semibold">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:border-orange-400"
+                <Input
+                  label="Your Name"
+                  placeholder="Enter your name"
+                  required
                 />
+
+                <Input
+                  label="Phone Number"
+                  placeholder="Enter your phone"
+                  type="tel"
+                  required
+                />
+
               </div>
 
+              <Input
+                label="Email Address"
+                placeholder="Enter your email"
+                type="email"
+                required
+              />
+
+              {/* SERVICE */}
               <div>
-                <label className="block text-black/70 mb-2 font-semibold">
+                <label className="block text-black mb-2 font-semibold">
                   Select Service
                 </label>
-                <select className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-orange-400">
+
+                <select
+                  required
+                  className="w-full px-4 py-3 bg-white/60 border border-yellow-200 rounded-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                >
+                  <option value="">Select a service</option>
                   <option>Vedic Astrology</option>
                   <option>Tarot Reading</option>
                   <option>Palmistry</option>
@@ -154,29 +243,140 @@ export default function Contact() {
                 </select>
               </div>
 
+              {/* MESSAGE */}
               <div>
-                <label className="block text-black/70 mb-2 font-semibold">
+                <label className="block text-black mb-2 font-semibold">
                   Your Message
                 </label>
+
                 <textarea
-                  rows={4}
+                  rows={5}
+                  required
                   placeholder="Tell us about your concerns..."
-                  className="w-full px-4 py-3 bg-white/80 border border-gray-300 rounded-lg text-black placeholder-gray-400 focus:outline-none focus:border-orange-400 resize-none"
+                  className="w-full px-4 py-3 bg-white/60 border border-yellow-200 rounded-lg text-black placeholder-black/40 focus:outline-none focus:ring-2 focus:ring-yellow-300 resize-none"
                 />
               </div>
 
+              {/* SUBMIT */}
               <button
                 type="submit"
-                className="w-full text-lg px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-orange-500 to-yellow-500 hover:scale-105 transition transform duration-300 shadow-lg"
+                className="w-full flex items-center justify-center gap-2 text-lg bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-4 rounded-full transition hover:scale-[1.02] shadow-md"
               >
-                Book Your Consultation Now
+                Book Your Consultation
+                <FaArrowRight />
               </button>
 
+              <p className="text-xs text-center text-black/50">
+                Your information will be kept private and used only to contact
+                you regarding your consultation.
+              </p>
+
             </form>
+
           </motion.div>
 
         </div>
+
+        {/* ================= TRUST SECTION ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto mt-20 text-center"
+        >
+
+          <h3 className="text-2xl md:text-3xl font-semibold text-black mb-4">
+            Your Questions. Your Journey. Our Guidance.
+          </h3>
+
+          <p className="text-black/60 max-w-2xl mx-auto">
+            Whether you are looking for clarity in relationships, career,
+            finances, marriage or your personal journey, connect with us for
+            personalized guidance.
+          </p>
+
+        </motion.div>
+
       </div>
     </section>
+  )
+}
+
+
+/* =========================================================
+   CONTACT ITEM
+========================================================= */
+
+function ContactItem({
+  icon,
+  title,
+  value,
+  href,
+  delay,
+}: any) {
+  const content = (
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay }}
+      className="flex items-center gap-4 bg-white/40 backdrop-blur-lg p-5 rounded-xl border border-yellow-300 hover:-translate-y-1 hover:shadow-lg transition-all"
+    >
+
+      <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-yellow-400 text-black text-xl shadow-md">
+        {icon}
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-yellow-600">
+          {title}
+        </h3>
+
+        <p className="text-black/70 break-words">
+          {value}
+        </p>
+      </div>
+
+    </motion.div>
+  )
+
+  if (href) {
+    return (
+      <a href={href}>
+        {content}
+      </a>
+    )
+  }
+
+  return content
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+function Input({
+  label,
+  placeholder,
+  type = 'text',
+  required = false,
+}: any) {
+  return (
+    <div>
+
+      <label className="block text-black mb-2 font-semibold">
+        {label}
+      </label>
+
+      <input
+        type={type}
+        placeholder={placeholder}
+        required={required}
+        className="w-full px-4 py-3 bg-white/60 border border-yellow-200 rounded-lg text-black placeholder-black/40 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+      />
+
+    </div>
   )
 }

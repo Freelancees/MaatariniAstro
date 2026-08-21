@@ -40,12 +40,12 @@ export const products: Product[] = [
 { slug: "opal-stone", name: "Opal Stone", category: "gemstones", subcategory: "opal", price: 1399, images: ["/image/gemstones/9.jpg"], description: "Enhances creativity.", specifications: [] },
 { slug: "amethyst", name: "Amethyst", category: "gemstones", subcategory: "amethyst", price: 899, images: ["/image/gemstones/10.jpg"], description: "Spiritual protection stone.", specifications: [] },
 
-// EXTRA GEMSTONE PRODUCTS (ALREADY IN YOUR LIST - JUST ADD SUBCATEGORY)
+// EXTRA GEMSTONE PRODUCTS
 { slug: "ruby-manik-5-carat", name: "Ruby / Manik (5 Carat)", category: "gemstones", subcategory: "ruby-manik", price: 5000, images: ["/image/gemstones/ruby.jpg"], description: "Powerful Sun stone", specifications: [] },
 { slug: "tigers-eye-6-carat", name: "Tiger's Eye (6 Carat)", category: "gemstones", subcategory: "tigers-eye", price: 500, images: ["/image/gemstones/tiger.jpg"], description: "Confidence and protection stone", specifications: [] },
 { slug: "basra-pearl-1", name: "Basra Pearl (Premium)", category: "gemstones", subcategory: "basra-pearl", price: 12000, oldPrice: 13200, images: ["/image/gemstones/pearl.jpg"], description: "Rare high-quality pearl", specifications: [] },
   
-// RUDRAKSHA (duplicates removed)
+// RUDRAKSHA 
   { slug: "1-mukhi-rudraksha", name: "1 Mukhi Rudraksha", category: "rudraksha", price: 2999, images: ["/image/rudraksha/1.jpg"], description: "Rare and powerful bead.", specifications: [] },
   { slug: "2-mukhi-rudraksha", name: "2 Mukhi Rudraksha", category: "rudraksha", price: 1999, images: ["/image/rudraksha/2.jpg"], description: "Improves relationships.", specifications: [] },
   { slug: "3-mukhi-rudraksha", name: "3 Mukhi Rudraksha", category: "rudraksha", price: 999, images: ["/image/rudraksha/3.jpg"], description: "Burns past karma.", specifications: [] },
@@ -62,7 +62,7 @@ export const products: Product[] = [
   { slug: "108-beads-rudraksha-mala", name: "108 Beads Rudraksha Mala", category: "rudraksha", price: 1599, images: ["/image/rudraksha/14.jpg"], description: "Full japa mala.", specifications: [] },
   { slug: "nepali-rudraksha-mala", name: "Nepali Rudraksha Mala", category: "rudraksha", price: 1999, images: ["/image/rudraksha/15.jpg"], description: "Premium Nepali beads.", specifications: [] },
 
-  // BRACELETS (removed duplicates like same slug)
+  // BRACELETS 
   { slug: "7-chakra-bracelet", name: "7 Chakra Bracelet", category: "bracelets", price: 799, images: ["/image/bracelets/1.jpg"], description: "Balances chakras.", specifications: [] },
   { slug: "black-tourmaline-bracelet", name: "Black Tourmaline Bracelet", category: "bracelets", price: 899, images: ["/image/bracelets/2.jpg"], description: "Protection bracelet.", specifications: [] },
   { slug: "tiger-eye-bracelet", name: "Tiger Eye Bracelet", category: "bracelets", price: 699, images: ["/image/bracelets/3.jpg"], description: "Confidence booster.", specifications: [] },
@@ -74,7 +74,6 @@ export const products: Product[] = [
   { slug: "moonstone-bracelet", name: "Moonstone Bracelet", category: "bracelets", price: 899, images: ["/image/bracelets/9.jpg"], description: "Emotional balance.", specifications: [] },
   { slug: "rudraksha-bracelet", name: "Rudraksha Bracelet", category: "bracelets", price: 699, images: ["/image/bracelets/10.jpg"], description: "Spiritual protection.", specifications: [] },
 
-  
 //Vastu
   { slug: "vastu-pyramid", name: "Vastu Pyramid", category: "vastu", price: 599, images: ["/image/vastu/1.jpg"], description: "Enhances positive energy in your space.", specifications: [] },
   { slug: "copper-swastik", name: "Copper Swastik", category: "vastu", price: 499, images: ["/image/vastu/2.jpg"], description: "Symbol of prosperity and good luck.", specifications: [] },
@@ -130,7 +129,7 @@ export const products: Product[] = [
   { slug: "green-zebu-pyramid", name: "Green Zebu Pyramid", category: "vastu", price: 799, images: ["/image/best selling/Green Zebu Pyramid.png"], description: "Enhances positive energy.", specifications: [], isNew: true },
   { slug: "meru-shree-yantra", name: "Meru Shree Yantra", category: "yantras", price: 699, images: ["/image/best selling/meru shree yantra.png"], description: "Powerful spiritual yantra.", specifications: [], isNew: true },
 
-  // 🔥 Best Selling (NOW ADDED PROPERLY)
+  // 🔥 Best Selling 
 { slug: "8-directions-booster", name: "8 Directions Booster with Yantra", category: "vastu", price: 799, images: ["/image/best selling/8 Directions Booster with Yantra.png"], description: "Enhances meditation energy.", specifications: [], isBestSelling: true },
 { slug: "brass-trishakti", name: "Brass Trishakti", category: "vastu", price: 999, images: ["/image/best selling/Brass Trishakti.png"], description: "Balance planetary energies.", specifications: [], isBestSelling: true },
 { slug: "five-element-tape", name: "Five Element Tape", category: "vastu", price: 699, images: ["/image/best selling/Five Element Tape.png"], description: "Planetary gemstone healing.", specifications: [], isBestSelling: true },
@@ -164,7 +163,7 @@ export const products: Product[] = [
 
 
 
-// 🟡 BRACELETS (NO SUBCATEGORY — DIRECT PRODUCTS)
+// 🟡 BRACELETS 
 { slug: "labradorite-bracelet", name: "Labradorite Bracelet", category: "bracelets", price: 899, images: ["/image/productcomp/bracelets/labradorite.jpg"], description: "Enhances intuition and protection.", specifications: [] },
 { slug: "serpentine-bracelet", name: "Serpentine Bracelet", category: "bracelets", price: 799, images: ["/image/productcomp/bracelets/serpentine.jpg"], description: "Healing and detox energy.", specifications: [] },
 { slug: "rose-quartz-bracelet-2", name: "Rose Quartz Bracelet", category: "bracelets", price: 799, images: ["/image/productcomp/bracelets/rose-quartz.jpg"], description: "Love and emotional healing.", specifications: [] },
@@ -226,7 +225,7 @@ export const products: Product[] = [
 { slug: "copper-wind-chime", name: "Copper Wind Chime", category: "vastu", subcategory: "wind-chimes", price: 799, images: ["/image/vastu/chime2.jpg"], description: "Enhances positive energy.", specifications: [] },
 { slug: "evil-eye-wind-chime", name: "Evil Eye Wind Chime", category: "vastu", subcategory: "wind-chimes", price: 699, images: ["/image/vastu/chime3.jpg"], description: "Protection from evil eye.", specifications: [] },
 
-// 🔵 MALA (DIRECT CATEGORY - NO SUBCATEGORY)
+// 🔵 MALA 
 { slug: "rudraksha-mala", name: "Rudraksha Mala", category: "mala", price: 999, images: ["/image/mala/rudraksha.jpg"], description: "Spiritual mala for meditation", specifications: [] },
 { slug: "karungali-mala", name: "Karungali Mala", category: "mala", price: 899, images: ["/image/mala/karungali.jpg"], description: "Protective energy mala", specifications: [] },
 { slug: "silver-karungali-mala", name: "Silver Coated Karungali Mala", category: "mala", price: 1199, images: ["/image/mala/silver-karungali.jpg"], description: "Premium coated karungali mala", specifications: [] },
