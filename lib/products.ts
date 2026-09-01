@@ -1,3 +1,4 @@
+import { BiJoystickAlt } from "react-icons/bi"
 import {
   gemstoneSubcategories,
   rudrakshaSubcategories,
@@ -160,8 +161,6 @@ export const products: Product[] = [
 
 // BRACELET
 { slug: "rudraksha-bracelet", name: "Rudraksha Bracelet", category: "rudraksha", subcategory: "bracelet", price: 699, images: ["/image/bracelets/10.jpg"], description: "Spiritual protection", specifications: [] },
-
-
 
 // 🟡 BRACELETS 
 { slug: "labradorite-bracelet", name: "Labradorite Bracelet", category: "bracelets", price: 899, images: ["/image/productcomp/bracelets/labradorite.jpg"], description: "Enhances intuition and protection.", specifications: [] },

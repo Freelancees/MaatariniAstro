@@ -85,15 +85,19 @@ export default function Contact() {
 
               <div className="space-y-5">
 
-                {/* PHONE */}
-                <ContactItem
-                  icon={<FaPhoneAlt />}
-                  title="Call Us"
-                  value="+91 73259 25333"
-                  href={`tel:${phoneNumber}`}
-                  delay={0}
-                />
-
+              {/* PHONE */}
+<ContactItem
+  icon={<FaPhoneAlt />}
+  title="Call Us"
+  value={
+    <>
+      <span>+91 73259 25333</span>
+      <span>+91 99385 10555</span>
+    </>
+  }
+  href={`tel:${phoneNumber}`}
+  delay={0}
+/>
                 {/* EMAIL */}
                 <ContactItem
                   icon={<FaEnvelope />}
@@ -107,7 +111,7 @@ export default function Contact() {
                 <ContactItem
                   icon={<FaMapMarkerAlt />}
                   title="Visit Us"
-                  value="HIG-6/5, Forest Colony, BDA Colony, Chandrasekharpur, Bhubaneswar, Odisha - 751023"
+                  value="HIG 5/6, BDA Colony, Chandrasekharpur, Bhubaneswar, Odisha - 751016"
                   delay={0.2}
                 />
 
@@ -159,8 +163,7 @@ export default function Contact() {
     </h3>
 
     <p className="text-black/60 max-w-md px-6">
-      HIG-6/5, Forest Colony, BDA Colony,
-      Chandrasekharpur, Bhubaneswar, Odisha - 751023
+      HIG 5/6, BDA Colony, Chandrasekharpur, Bhubaneswar, Odisha - 751016
     </p>
 
     <div className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold transition">

@@ -1,137 +1,774 @@
 'use client'
 
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { motion } from 'framer-motion'
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from 'react'
 import { useRouter } from 'next/navigation'
 
+interface Highlight {
+  title: string
+  category: string
+  description: string
+  image: string
+  button: string
+  route: string
+}
+
 export default function HighlightsRow() {
-  const [showCTA, setShowCTA] = useState(false)
   const router = useRouter()
 
+  // ============================================
+  // REFS
+  // ============================================
+
+  const sliderRef = useRef<HTMLDivElement | null>(null)
+
+  // Use number specifically for browser window.setInterval
+  const autoScrollRef = useRef<number | null>(null)
+
+  const isDragging = useRef<boolean>(false)
+  const startX = useRef<number>(0)
+  const startScrollLeft = useRef<number>(0)
+
+  // ============================================
+  // STATE
+  // ============================================
+
+  const [activeIndex, setActiveIndex] =
+    useState<number>(0)
+
+  const [isPaused, setIsPaused] =
+    useState<boolean>(false)
+
+  // ============================================
+  // HIGHLIGHTS
+  // ============================================
+
+  const highlights: Highlight[] = [
+    {
+      title: 'Soil Testing',
+      category: 'Agriculture',
+      description:
+        'Advanced soil testing to understand fertility, quality and land potential.',
+      image: '/image/soiltest.jpg',
+      button: 'Get Consultation',
+      route: '/contact',
+    },
+
+    {
+      title: 'Training Center',
+      category: 'Professional Training',
+      description:
+        'Practical training programs designed to develop skills, knowledge and expertise.',
+      image: '/image/astrotraining.jpg',
+      button: 'Explore Training',
+      route: '/training',
+    },
+
+    {
+      title: 'Digital Borewell Water Detector',
+      category: 'Water Detection',
+      description:
+        'Digital scanning equipment used to identify potential underground water points.',
+      image: '/image/digital-borewell.jpg',
+      button: 'Learn More',
+      route: '/contact',
+    },
+
+    {
+      title: 'Digital Aura Scanner',
+      category: 'Aura Analysis',
+      description:
+        'Handheld equipment used for human aura and energy-field analysis.',
+      image: '/image/digital-aura-scanner.jpg',
+      button: 'Learn More',
+      route: '/contact',
+    },
+
+    {
+      title: 'L-Rod (Dowsing Rod)',
+      category: 'Dowsing Tool',
+      description:
+        'L-shaped rods used in dowsing practices for locating and identifying points of interest.',
+      image: '/image/l-rod.jpg',
+      button: 'Learn More',
+      route: '/contact',
+    },
+
+    {
+      title: 'Dowser (Pendulum)',
+      category: 'Dowsing & Reading',
+      description:
+        'Pendulum-based tool used for dowsing, readings and point identification.',
+      image: '/image/dowser-pendulum.jpg',
+      button: 'Learn More',
+      route: '/contact',
+    },
+
+    {
+      title: 'Lecher Antenna',
+      category: 'Energy Field Analysis',
+      description:
+        'Specialized equipment used in radiesthesia-based frequency and field analysis.',
+      image: '/image/lecher-antenna.jpg',
+      button: 'Learn More',
+      route: '/contact',
+    },
+  ]
+
+  // ============================================
+  // SCROLL TO SPECIFIC CARD
+  // ============================================
+
+  const scrollToIndex = (index: number): void => {
+    const container = sliderRef.current
+
+    if (!container) return
+
+    // Explicitly tell TypeScript these are HTMLElements
+    const cards =
+      container.querySelectorAll<HTMLElement>(
+        '[data-highlight-card]'
+      )
+
+    const card = cards[index]
+
+    if (!card) return
+
+    const targetPosition =
+      card.offsetLeft -
+      container.clientWidth / 2 +
+      card.clientWidth / 2
+
+    container.scrollTo({
+      left: targetPosition,
+      behavior: 'smooth',
+    })
+
+    setActiveIndex(index)
+
+    // Pause after manually selecting a card
+    setIsPaused(true)
+
+    window.setTimeout(() => {
+      setIsPaused(false)
+    }, 2000)
+  }
+
+  // ============================================
+  // NEXT SLIDE
+  // ============================================
+
+  const nextSlide = (): void => {
+    const next =
+      (activeIndex + 1) % highlights.length
+
+    scrollToIndex(next)
+  }
+
+  // ============================================
+  // PREVIOUS SLIDE
+  // ============================================
+
+  const previousSlide = (): void => {
+    const previous =
+      (activeIndex - 1 + highlights.length) %
+      highlights.length
+
+    scrollToIndex(previous)
+  }
+
+  // ============================================
+  // AUTO MARQUEE
+  // ============================================
+
+  useEffect(() => {
+    if (isPaused) {
+      return
+    }
+
+    const container = sliderRef.current
+
+    if (!container) {
+      return
+    }
+
+    autoScrollRef.current = window.setInterval(() => {
+      /*
+       * Check if we reached the end
+       */
+      const reachedEnd =
+        container.scrollLeft +
+          container.clientWidth >=
+        container.scrollWidth - 5
+
+      if (reachedEnd) {
+        container.scrollTo({
+          left: 0,
+          behavior: 'smooth',
+        })
+
+        setActiveIndex(0)
+
+        return
+      }
+
+      /*
+       * Move the slider slowly
+       */
+      container.scrollBy({
+        left: 1,
+        behavior: 'auto',
+      })
+    }, 25)
+
+    /*
+     * Cleanup
+     */
+    return () => {
+      if (autoScrollRef.current !== null) {
+        window.clearInterval(autoScrollRef.current)
+
+        autoScrollRef.current = null
+      }
+    }
+  }, [isPaused])
+
+  // ============================================
+  // UPDATE ACTIVE DOT
+  // ============================================
+
+  const handleScroll = (): void => {
+    const container = sliderRef.current
+
+    if (!container) return
+
+    const cards =
+      container.querySelectorAll<HTMLElement>(
+        '[data-highlight-card]'
+      )
+
+    if (cards.length === 0) return
+
+    const containerCenter =
+      container.scrollLeft +
+      container.clientWidth / 2
+
+    let closestIndex = 0
+    let closestDistance = Infinity
+
+    cards.forEach(
+      (card: HTMLElement, index: number) => {
+        const cardCenter =
+          card.offsetLeft +
+          card.clientWidth / 2
+
+        const distance = Math.abs(
+          containerCenter - cardCenter
+        )
+
+        if (distance < closestDistance) {
+          closestDistance = distance
+          closestIndex = index
+        }
+      }
+    )
+
+    setActiveIndex(closestIndex)
+  }
+
+  // ============================================
+  // POINTER DOWN
+  // ============================================
+
+  const handlePointerDown = (
+    e: ReactPointerEvent<HTMLDivElement>
+  ): void => {
+    const container = sliderRef.current
+
+    if (!container) return
+
+    isDragging.current = true
+
+    startX.current = e.clientX
+
+    startScrollLeft.current =
+      container.scrollLeft
+
+    // Stop auto scrolling while dragging
+    setIsPaused(true)
+
+    container.setPointerCapture(e.pointerId)
+
+    container.style.cursor = 'grabbing'
+  }
+
+  // ============================================
+  // POINTER MOVE
+  // ============================================
+
+  const handlePointerMove = (
+    e: ReactPointerEvent<HTMLDivElement>
+  ): void => {
+    const container = sliderRef.current
+
+    if (
+      !isDragging.current ||
+      !container
+    ) {
+      return
+    }
+
+    e.preventDefault()
+
+    const currentX = e.clientX
+
+    const walk =
+      (currentX - startX.current) * 1.2
+
+    container.scrollLeft =
+      startScrollLeft.current - walk
+  }
+
+  // ============================================
+  // POINTER UP
+  // ============================================
+
+  const handlePointerUp = (
+    e: ReactPointerEvent<HTMLDivElement>
+  ): void => {
+    const container = sliderRef.current
+
+    if (!container) return
+
+    isDragging.current = false
+
+    if (container.hasPointerCapture(e.pointerId)) {
+      container.releasePointerCapture(e.pointerId)
+    }
+
+    container.style.cursor = 'grab'
+
+    // Wait a little before resuming
+    window.setTimeout(() => {
+      setIsPaused(false)
+    }, 1500)
+  }
+
+  // ============================================
+  // RENDER
+  // ============================================
+
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-blue-50/40 to-white">
+    <section className="relative overflow-hidden bg-white py-12 md:py-14">
 
-      {/* 🔵 FLOATING GRADIENT BLOBS */}
+      {/* =====================================
+          BACKGROUND BLOBS
+      ===================================== */}
+
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[400px] h-[400px] bg-blue-400/20 blur-[120px] rounded-full top-[-100px] left-[-100px] animate-pulse" />
-        <div className="absolute w-[350px] h-[350px] bg-sky-300/20 blur-[100px] rounded-full bottom-[-80px] right-[-80px] animate-pulse" />
+
+        <div
+          className="
+            absolute
+            -top-32
+            -left-32
+            w-[350px]
+            h-[350px]
+            rounded-full
+            bg-blue-400/10
+            blur-[100px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            -bottom-32
+            -right-32
+            w-[350px]
+            h-[350px]
+            rounded-full
+            bg-sky-400/10
+            blur-[100px]
+          "
+        />
+
       </div>
 
-      {/* ✨ HEADING */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-14 px-6 relative z-10"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold">
-          <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-blue-400 bg-clip-text text-transparent animate-[gradient_6s_linear_infinite] bg-[length:200%_auto]">
-            Our Highlights
-          </span>
-        </h2>
+      {/* =====================================
+          HEADER
+      ===================================== */}
 
-        <p className="text-gray-600 mt-3 text-sm md:text-base">
-          Discover our key initiatives that make us stand out
-        </p>
-      </motion.div>
+      <div className="relative z-10 px-5 mb-7">
 
-      {/* GRID */}
-<div className="grid md:grid-cols-2 gap-6 px-6 md:px-10 relative z-10">
+        <div className="max-w-7xl mx-auto flex items-end justify-between gap-5">
 
-  {/* 🌱 SOIL TEST */}
-  <motion.div
-    whileHover={{ y: -6 }}
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="flex h-[260px] rounded-2xl overflow-hidden 
-    bg-white shadow-lg border border-gray-200"
-  >
-    {/* IMAGE LEFT */}
-    <div className="relative w-[45%] h-full">
-      <Image
-        src="/image/soiltest.jpg"
-        alt="Soil Testing"
-        fill
-        className="object-cover"
-      />
-    </div>
+          <div>
 
-    {/* TEXT RIGHT */}
-    <div className="w-[55%] p-5 flex flex-col justify-between">
-      <div>
-        <p className="text-blue-600 text-xs font-semibold mb-1">
-          🇮🇳 First Time in India
-        </p>
+            <div className="flex items-center gap-2 mb-2">
 
-        <h3 className="text-lg font-bold text-gray-800 mb-2">
-          Soil Testing
-        </h3>
+              <span className="w-8 h-[2px] bg-blue-600" />
 
-        <p className="text-gray-600 text-sm">
-          Advanced soil testing to analyze fertility, quality, and land potential.
-        </p>
+              <span className="text-blue-600 text-xs font-semibold uppercase tracking-widest">
+                Our Expertise
+              </span>
+
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Our{' '}
+              <span className="text-blue-600">
+                Highlights
+              </span>
+            </h2>
+
+            <p className="text-gray-500 text-sm mt-1">
+              Explore our services, tools and training programs.
+            </p>
+
+          </div>
+
+          {/* DESKTOP ARROWS */}
+
+          <div className="hidden sm:flex items-center gap-2">
+
+            <button
+              type="button"
+              onClick={previousSlide}
+              aria-label="Previous"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-gray-200
+                bg-white
+                flex
+                items-center
+                justify-center
+                text-gray-700
+                hover:bg-blue-600
+                hover:text-white
+                hover:border-blue-600
+                transition
+                shadow-sm
+              "
+            >
+              ←
+            </button>
+
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-gray-200
+                bg-white
+                flex
+                items-center
+                justify-center
+                text-gray-700
+                hover:bg-blue-600
+                hover:text-white
+                hover:border-blue-600
+                transition
+                shadow-sm
+              "
+            >
+              →
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <button
-        onClick={() => router.push('/contact')}
-        className="mt-3 w-fit px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
-      >
-        Get Consultation
-      </button>
-    </div>
-  </motion.div>
+      {/* =====================================
+          SLIDER
+      ===================================== */}
 
+      <div className="relative z-10">
 
-  {/* 🎓 TRAINING CENTER */}
-  <motion.div
-    whileHover={{ y: -6 }}
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: 0.1 }}
-    className="flex h-[260px] rounded-2xl overflow-hidden 
-    bg-white shadow-lg border border-gray-200"
-  >
-    {/* IMAGE LEFT */}
-    <div className="relative w-[45%] h-full">
-      <Image
-        src="/image/astrotraining.jpg"
-        alt="Training Center"
-        fill
-        className="object-cover"
-      />
-    </div>
+        <div
+          ref={sliderRef}
+          onScroll={handleScroll}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => {
+            if (!isDragging.current) {
+              setIsPaused(false)
+            }
+          }}
+          className="
+            flex
+            gap-4
+            overflow-x-auto
+            px-5
+            md:px-[max(40px,calc((100vw-1280px)/2))]
+            pb-3
+            select-none
+            cursor-grab
+          "
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            touchAction: 'pan-y',
+          }}
+        >
 
-    {/* TEXT RIGHT */}
-    <div className="w-[55%] p-5 flex flex-col justify-between">
-      <div>
-        <h3 className="text-lg font-bold text-gray-800 mb-2">
-          Training Center
-        </h3>
+          {highlights.map(
+            (
+              item: Highlight,
+              index: number
+            ) => (
 
-        <p className="text-gray-600 text-sm">
-          Hands-on training programs designed to build skills, knowledge,
-          and real-world expertise.
-        </p>
+              <motion.div
+                key={item.title}
+                data-highlight-card
+                whileHover={{
+                  y: -4,
+                }}
+                className="
+                  group
+                  relative
+                  flex
+                  flex-shrink-0
+                  w-[310px]
+                  sm:w-[350px]
+                  md:w-[390px]
+                  h-[175px]
+                  rounded-2xl
+                  overflow-hidden
+                  bg-white
+                  border
+                  border-gray-200
+                  shadow-md
+                  hover:shadow-xl
+                  transition-shadow
+                  duration-300
+                "
+              >
+
+                {/* IMAGE */}
+
+                <div className="relative w-[40%] h-full flex-shrink-0">
+
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    draggable={false}
+                    sizes="160px"
+                    className="
+                      object-cover
+                      group-hover:scale-105
+                      transition-transform
+                      duration-500
+                    "
+                  />
+
+                  {/* OVERLAY */}
+
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gradient-to-r
+                      from-black/10
+                      to-black/40
+                    "
+                  />
+
+                  {/* NUMBER */}
+
+                  <div
+                    className="
+                      absolute
+                      top-3
+                      left-3
+                      w-7
+                      h-7
+                      rounded-full
+                      bg-white/90
+                      text-blue-600
+                      text-[10px]
+                      font-bold
+                      flex
+                      items-center
+                      justify-center
+                      shadow
+                    "
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+
+                </div>
+
+                {/* CONTENT */}
+
+                <div className="flex-1 p-4 flex flex-col justify-between min-w-0">
+
+                  <div>
+
+                    <p className="text-[9px] text-blue-600 font-bold uppercase tracking-wider mb-1">
+                      {item.category}
+                    </p>
+
+                    <h3
+                      className="
+                        text-sm
+                        md:text-base
+                        font-bold
+                        text-gray-800
+                        leading-tight
+                        line-clamp-2
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p
+                      className="
+                        text-[11px]
+                        md:text-xs
+                        text-gray-500
+                        leading-relaxed
+                        mt-1.5
+                        line-clamp-3
+                      "
+                    >
+                      {item.description}
+                    </p>
+
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      router.push(item.route)
+                    }}
+                    className="
+                      w-fit
+                      mt-2
+                      text-[11px]
+                      font-semibold
+                      text-blue-600
+                      hover:text-blue-800
+                      flex
+                      items-center
+                      gap-1
+                      transition
+                    "
+                  >
+                    {item.button}
+
+                    <span>
+                      →
+                    </span>
+
+                  </button>
+
+                </div>
+
+              </motion.div>
+
+            )
+          )}
+
+        </div>
+
       </div>
 
-      <button
-        onClick={() => router.push('/training')}
-        className="mt-3 w-fit px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
-      >
-        Explore Training
-      </button>
-    </div>
-  </motion.div>
+      {/* =====================================
+          CONTROLS
+      ===================================== */}
 
-</div>
+      <div className="relative z-10 mt-3 flex flex-col items-center gap-3">
 
-      {/* 🎯 GRADIENT ANIMATION */}
+        {/* DOTS */}
+
+        <div className="flex items-center gap-1.5">
+
+          {highlights.map(
+            (
+              item: Highlight,
+              index: number
+            ) => (
+
+              <button
+                key={item.title}
+                type="button"
+                onClick={() =>
+                  scrollToIndex(index)
+                }
+                aria-label={`Go to ${item.title}`}
+                className={`
+                  h-1.5
+                  rounded-full
+                  transition-all
+                  duration-300
+
+                  ${
+                    activeIndex === index
+                      ? 'w-7 bg-blue-600'
+                      : 'w-1.5 bg-gray-300 hover:bg-blue-400'
+                  }
+                `}
+              />
+
+            )
+          )}
+
+        </div>
+
+        {/* STATUS */}
+
+        <div className="flex items-center gap-2 text-[10px] text-gray-400">
+
+          <span
+            className={`
+              w-1.5
+              h-1.5
+              rounded-full
+
+              ${
+                isPaused
+                  ? 'bg-orange-400'
+                  : 'bg-green-500'
+              }
+            `}
+          />
+
+          {isPaused
+            ? 'Paused — drag or choose an item'
+            : 'Auto scrolling — hover or drag to pause'}
+
+        </div>
+
+      </div>
+
+      {/* =====================================
+          HIDE SCROLLBAR
+      ===================================== */}
+
       <style jsx>{`
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          100% { background-position: 200% 50%; }
+        div::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
 
