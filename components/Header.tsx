@@ -40,11 +40,10 @@ export default function Header() {
       initial={{ y: 0 }}
       animate={{ y: showHeader ? 0 : -120 }}
       transition={{ duration: 0.35 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-slate-900/90 backdrop-blur-lg shadow-xl border-b border-white/10'
           : 'bg-slate-950/40 backdrop-blur-md'
-      }`}
+        }`}
     >
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4">
@@ -56,7 +55,7 @@ export default function Header() {
           >
             <div className="absolute w-[70px] h-[50px] bg-yellow-400/50 rounded-full blur-lg" />
             <Image
-              src="/image/logo1.png"
+              src="/image/logo2.jpeg"
               width={55}
               height={55}
               className="object-contain relative z-10"
