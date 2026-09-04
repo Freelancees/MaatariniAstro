@@ -38,7 +38,7 @@ export default function Hero() {
           <source src="/videos/space-bg.mp4" type="video/mp4" />
         </video>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-300/80 via-blue-from-blue-300/70 to-blue-from-blue-300/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-200/80 via-sky-300/70 to-blue-400/85" />
       </div>
 
       {/* SOFT RADIANT GLOW */}
@@ -84,7 +84,7 @@ export default function Hero() {
               repeat: Infinity,
               ease: 'easeOut',
             }}
-            className="absolute w-40 h-[2px] bg-gradient-to-r from-yellow-200 via-white to-transparent"
+            className="absolute w-40 h-[2px] bg-gradient-to-r from-yellow-300 via-white to-transparent"
           />
         ))}
       </div>
@@ -114,7 +114,7 @@ export default function Hero() {
                   duration: 0.8,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="absolute text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]"
+                className="absolute text-3xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight leading-tight"
               >
                 {text}
               </motion.h1>
@@ -126,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-base sm:text-xl text-yellow-100/90 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-md"
+            className="text-base sm:text-xl text-slate-900/90 max-w-2xl mx-auto font-medium leading-relaxed"
           >
             Discover your destiny through ancient Vedic insights, certified abhimantrit gemstones, energized rudraksha beads, and powerful vastu remedies.
           </motion.p>
@@ -141,7 +141,7 @@ export default function Hero() {
             {/* Primary: Shop Products */}
             <Link
               href="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 rounded-full font-black text-sm sm:text-base shadow-xl shadow-yellow-500/30 transition transform hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-500 text-slate-950 rounded-full font-black text-sm sm:text-base shadow-xl shadow-yellow-500/25 transition transform hover:scale-105 active:scale-95"
             >
               <span>Shop All Products (₹999)</span>
               <ArrowRight className="w-4 h-4" />
@@ -150,7 +150,7 @@ export default function Hero() {
             {/* Secondary: Book Consultation */}
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white/60 text-white rounded-full font-bold text-sm sm:text-base hover:bg-white/10 transition backdrop-blur-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4  text-slate-950 hover:bg-slate-900 hover:text-white rounded-full font-bold text-sm sm:text-base bg-white/60 backdrop-blur-md transition shadow-md"
             >
               <span>Book Astrologer Consultation</span>
             </Link>
@@ -161,18 +161,18 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-white/80 font-medium"
+            className="pt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-900 font-bold"
           >
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-yellow-400" />
-              100% Original & Vedic Certified
+            <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
+              <ShieldCheck className="w-4 h-4 text-amber-700" />
+              <span>100% Original & Vedic Certified</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <Banknote className="w-4 h-4 text-yellow-400" />
+            <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
+              <Banknote className="w-4 h-4 text-emerald-700" />
               <span>Cash on Delivery Available Across India</span>
             </span>
-            <span className="flex items-center gap-1.5">
-              <Truck className="w-4 h-4 text-yellow-400" />
+            <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
+              <Truck className="w-4 h-4 text-blue-700" />
               <span>Free 24-48h Express Dispatch</span>
             </span>
           </motion.div>
