@@ -1,59 +1,44 @@
-import { products } from "@/lib/products"
 import { notFound } from "next/navigation"
-import Image from "next/image"
+import { getProductBySlug, getRelatedProducts, products } from "@/lib/products"
+import ProductDetailClient from "@/components/ProductDetailClient"
 import { CategoryParams } from "@/types"
+import { Metadata } from "next"
 
-export default function ProductPage({
+export async function generateMetadata({
+  params,
+}: {
+  params: Required<CategoryParams>
+}): Promise<Metadata> {
+  const product =
+    getProductBySlug(params.slug) ||
+    products.find((p) => p.slug.toLowerCase() === params.slug.toLowerCase())
+
+  if (!product) {
+    return { title: "Product Not Found | Maa Tarini Astro Vision" }
+  }
+
+  return {
+    title: `${product.name} (Vedic Energized) - ₹999 | Maa Tarini Astro Vision`,
+    description: `Buy ${product.name} online at ₹999. 100% Certified authentic with Cash on Delivery across India. ${product.description}`,
+  }
+}
+
+export default function SubcategoryProductPage({
   params,
 }: {
   params: Required<CategoryParams>
 }) {
-
-  const product = products.find(
-    (p) =>
-      p.slug === params.slug &&
-      p.category === params.category &&
-      p.subcategory === params.subcategory
-  )
+  const product =
+    getProductBySlug(params.slug) ||
+    products.find((p) => p.slug.toLowerCase() === params.slug.toLowerCase())
 
   if (!product) return notFound()
 
+  const relatedProducts = getRelatedProducts(product.slug, 4)
+
   return (
-    <div className="max-w-5xl mx-auto px-6 pt-32 pb-16">
-
-      <div className="grid md:grid-cols-2 gap-10">
-
-        {/* Image */}
-        <div className="relative w-full h-[400px]">
-          <Image
-            src={product.images[0]}
-            alt={product.name}
-            fill
-            className="object-contain"
-          />
-        </div>
-
-        {/* Details */}
-        <div>
-          <h1 className="text-2xl font-bold mb-4">
-            {product.name}
-          </h1>
-
-          <p className="text-gray-600 mb-4">
-            {product.description}
-          </p>
-
-          <div className="text-2xl font-bold mb-6">
-            ₹{product.price}
-          </div>
-
-          <button className="bg-yellow-400 px-6 py-3 rounded-md hover:bg-yellow-500 transition">
-            Add to Cart
-          </button>
-        </div>
-
-      </div>
-
-    </div>
+    <main className="min-h-screen pt-36 sm:pt-40 lg:pt-44 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <ProductDetailClient product={product} relatedProducts={relatedProducts} />
+    </main>
   )
 }

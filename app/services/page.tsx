@@ -1,6 +1,5 @@
 'use client'
 
-import Header from '@/components/Header'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
@@ -198,10 +197,8 @@ export default function ServicesPage() {
   return (
     <main className="bg-black text-white">
 
-      <Header />
-
       {/* HERO */}
-      <section className="pt-36 pb-24 text-center px-6">
+      <section className="pt-36 sm:pt-40 lg:pt-44 pb-24 text-center px-6">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
           Premium Astrology Services
         </h1>

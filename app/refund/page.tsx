@@ -23,7 +23,7 @@ const steps = [
 
 export default function RefundPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white py-20 px-6">
+    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50 to-white pt-36 sm:pt-40 lg:pt-44 pb-24 px-6">
       <div className="max-w-4xl mx-auto">
 
         {/* HEADING */}

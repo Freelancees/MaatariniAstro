@@ -44,7 +44,7 @@ const courses = [
 
 export default function TrainingPage() {
   return (
-    <section className="min-h-screen py-20 bg-gradient-to-b from-white via-blue-50/40 to-white">
+    <section className="min-h-screen pt-36 sm:pt-40 lg:pt-44 pb-24 bg-gradient-to-b from-white via-blue-50/40 to-white">
 
       {/* HEADING */}
       <div className="text-center mb-16 px-6">

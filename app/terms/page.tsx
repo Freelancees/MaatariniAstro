@@ -42,7 +42,7 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-white py-20 px-6">
+    <main className="min-h-screen bg-white pt-36 sm:pt-40 lg:pt-44 pb-24 px-6">
       <div className="max-w-5xl mx-auto">
 
         {/* HERO */}

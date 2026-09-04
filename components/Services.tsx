@@ -3,174 +3,155 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 const services = [
   {
-    title: 'Vedic Astrology',
+    title: 'Vedic Astrology & Kundali',
     slug: 'vedic',
-    description: 'Ancient wisdom to guide your life path and understand planetary influences',
+    description: 'Comprehensive birth chart analysis to decode planetary yogas, doshas, and career/finance timeline.',
     image: '/image/vedic.jpg',
   },
   {
-    title: 'Numerology',
+    title: 'Numerology Reading',
     slug: 'numerology',
-    description: 'Decode the mystical significance of numbers in your life',
+    description: 'Decode the mystical vibrational significance of your birth date and name for ultimate luck alignment.',
     image: '/image/numerology.jpg',
   },
   {
-    title: 'Gemstone Consultation',
+    title: 'Gemstone Recommendation',
     slug: 'gemstone',
-    description: 'Find the perfect gemstone to enhance your cosmic energy',
+    description: 'Discover the exact astrological gemstone to neutralize malefic planets and amplify personal fortune.',
     image: '/image/gamestonecol.jpg',
   },
   {
-    title: 'Soil Testing',
+    title: 'Scientific Soil & Energy Testing',
     slug: 'soil',
-    description: 'Understand land energy before construction',
+    description: 'Assess land fertility, positive vibrational frequency, and underground cosmic currents before construction.',
     image: '/image/soil.jpg',
   },
   {
-    title: 'Vastu Consultation',
+    title: 'Vastu Shastra Consultation',
     slug: 'vastu',
-    description: 'Harmonize your space with ancient architectural principles',
+    description: 'Harmonize residential and commercial spaces using 16-zone Vedic architectural rectifications.',
     image: '/image/product3.jpg',
   },
   {
-    title: 'Personal Horoscope Report',
+    title: 'Horoscope Report & Future Guidance',
     slug: 'horoscope',
-    description: 'Unveil hidden truths and gain clarity on your present and future',
+    description: 'Deep astrological predictions providing clarity on upcoming Mahadashas and opportunities.',
     image: '/image/product1.jpg',
   },
   {
-    title: 'Career Astrology',
+    title: 'Career & Business Astrology',
     slug: 'career',
-    description: 'Insights to excel in your profession',
+    description: 'Strategic cosmic insights to excel in competitive exams, corporate promotions, and entrepreneurial ventures.',
     image: '/image/product4.jpg',
   },
   {
-    title: 'Remedy Suggestions',
+    title: 'Sacred Remedies & Puja Vidhi',
     slug: 'remedies',
-    description: 'Spiritual solutions & powerful rituals',
+    description: 'Prescribed Vedic mantras, gemstone remedies, and divine rituals to dissolve karmic obstacles.',
     image: '/image/product6.jpg',
   },
   {
-    title: 'Marriage Horoscope',
+    title: 'Kundali Milan (Marriage Horoscope)',
     slug: 'marriage',
-    description: 'Compatibility & auspicious timing guidance',
+    description: 'Ashtakoot Guna Milan, Manglik Dosha pacification, and auspicious wedding muhurat selection.',
     image: '/image/product5.jpg',
   },
 ]
 
 export default function Services() {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-
-        {/* HEADER */}
+    <section className="py-20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="text-2xl md:text-3xl font-display text-black mb-4">
-            Our Services
+          <div className="inline-flex items-center gap-1.5 bg-yellow-400/30 border border-yellow-400/50 px-3 py-1 rounded-full text-xs font-bold text-slate-900 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+            <span>Divine Solutions</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Our Astrological Services
           </h2>
 
-          <p className="text-sm md:text-lg text-black/70 max-w-2xl mx-auto">
-            Explore powerful spiritual services designed to guide, protect, and elevate your life journey
+          <p className="text-sm sm:text-base text-slate-700 mt-2">
+            Explore authentic Vedic astrology, vastu shastra, and energy testing services guided by renowned scholars.
           </p>
         </motion.div>
 
-        {/* GRID */}
-        <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+        {/* Clean Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <ServiceCard service={service} index={index} key={index} />
+            <motion.div
+              key={service.slug}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ y: -6 }}
+              className="bg-white/85 backdrop-blur-md rounded-2xl overflow-hidden border border-yellow-200/80 shadow-md hover:shadow-2xl transition duration-300 flex flex-col justify-between group"
+            >
+              <div>
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-slate-900">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-108 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-amber-800 transition">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="px-5 pb-5 pt-0 border-t border-gray-100 mt-2 flex items-center justify-between">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 hover:text-amber-950 transition"
+                >
+                  <span>Book Consultation</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <span className="text-[10px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                  In-Person & Online
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* VIEW ALL BUTTON */}
+        {/* View All / Booking Button */}
         <div className="flex justify-center mt-12">
-          <Link href="/services">
-            <button className="
-              px-8 py-3
-              rounded-full
-              bg-yellow-400 text-black
-              font-semibold
-              hover:bg-yellow-300
-              hover:scale-105
-              transition-all duration-300
-              shadow-md hover:shadow-lg
-            ">
-              View All Services
-            </button>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 px-8 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-yellow-500/25 transition transform hover:scale-105 active:scale-95"
+          >
+            <span>Explore All Astrology Services</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-
       </div>
     </section>
-  )
-}
-
-/* CARD COMPONENT */
-
-function ServiceCard({ service, index }: any) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 60, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      whileHover={{ y: -8 }}
-      className="
-      group
-      relative
-      w-full
-      sm:w-[45%]
-      md:w-[30%]
-      lg:w-[18%]
-      bg-white/70
-      backdrop-blur-lg
-      rounded-2xl
-      overflow-hidden
-      border border-white/30
-      hover:border-yellow-400/60
-      shadow-lg hover:shadow-2xl
-      transition-all duration-300
-      "
-    >
-
-      {/* CLICKABLE OVERLAY */}
-      <Link
-        href={`/services#${service.slug}`}
-        className="absolute inset-0 z-10"
-      />
-
-      {/* IMAGE */}
-      <div className="relative h-44 overflow-hidden">
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
-      </div>
-
-      {/* CONTENT */}
-      <div className="p-5 flex flex-col justify-between h-[180px]">
-        <div>
-          <h3 className="text-lg font-semibold text-yellow-500 mb-2">
-            {service.title}
-          </h3>
-
-          <p className="text-sm text-black/80 leading-relaxed">
-            {service.description}
-          </p>
-        </div>
-      </div>
-
-    </motion.div>
   )
 }

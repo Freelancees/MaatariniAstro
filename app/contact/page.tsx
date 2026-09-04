@@ -18,14 +18,14 @@ export default function Contact() {
     'https://www.google.com/maps/dir/?api=1&destination=20.3180087,85.8169136'
 
   return (
-    <section className="py-24 md:py-20 sm:py-16 relative overflow-hidden">
+    <section className="pt-36 sm:pt-40 lg:pt-44 pb-24 relative overflow-hidden">
 
-      {/* 🌟 Glow */}
+      {/* Glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] bg-yellow-300 rounded-full blur-[180px] opacity-20" />
       </div>
 
-      {/* ✨ Stars */}
+      {/* Stars */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(25)].map((_, i) => (
           <div
@@ -166,8 +166,10 @@ export default function Contact() {
       HIG 5/6, BDA Colony, Chandrasekharpur, Bhubaneswar, Odisha - 751016
     </p>
 
-    <div className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold transition">
-      📍 Open Directions in Google Maps →
+    <div className="mt-6 inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold transition shadow-md">
+      <FaMapMarkerAlt className="text-amber-800" />
+      <span>Open Directions in Google Maps</span>
+      <FaArrowRight className="text-xs" />
     </div>
 
   </div>

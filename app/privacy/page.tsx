@@ -62,9 +62,9 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white py-20 px-6">
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white pt-36 sm:pt-40 lg:pt-44 pb-24 px-6">
 
-      {/* 🔵 BACKGROUND BLOBS */}
+      {/* BACKGROUND BLOBS */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute w-[400px] h-[400px] bg-blue-300/20 blur-[120px] rounded-full top-[-100px] left-[-100px]" />
         <div className="absolute w-[350px] h-[350px] bg-sky-300/20 blur-[100px] rounded-full bottom-[-80px] right-[-80px]" />

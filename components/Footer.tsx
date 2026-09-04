@@ -125,7 +125,7 @@ export default function Footer() {
   )
 }
 
-/* 🔹 SOCIAL ICON */
+/* SOCIAL ICON */
 function SocialIcon({ icon }: any) {
   return (
     <a
@@ -137,7 +137,7 @@ function SocialIcon({ icon }: any) {
   )
 }
 
-/* 🔹 LINK */
+/* LINK */
 function FooterLink({ href, label }: any) {
   return (
     <li>

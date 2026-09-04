@@ -2,20 +2,26 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Quote } from 'lucide-react'
 
 export default function About() {
   return (
-    <section className="py-2 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
 
       {/* Zodiac background */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('/image/zodiac-bg.png')] bg-center bg-cover"></div>
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/image/zodiac-bg.png')] bg-center bg-cover pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* HEADING ABOVE BOX */}
-        <h2 className="text-4xl font-bold text-gray-900 mb-10">
-          About Maa Tarini Astro Vision
-        </h2>
+        <div className="text-center sm:text-left mb-10">
+          <span className="text-xs font-bold text-amber-900 uppercase tracking-widest bg-yellow-300/60 px-3.5 py-1 rounded-full border border-yellow-400/40">
+            About Our Sacred Vision
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mt-3 tracking-tight">
+            About Maa Tarini Astro Vision
+          </h2>
+        </div>
 
         {/* 70 / 30 GRID */}
         <div className="grid lg:grid-cols-[7fr_3fr] gap-4 items-stretch">
@@ -105,11 +111,14 @@ export default function About() {
                 </p>
 
                 {/* Quote */}
-                <p className="text-gray-800 italic leading-relaxed mb-6">
-                  ❝ Astrology is not about predicting destiny,
-                  but understanding the cosmic energies guiding
-                  our life journey. ❞
-                </p>
+                <div className="flex items-start gap-2 mb-6">
+                  <Quote className="w-5 h-5 text-amber-500 shrink-0 rotate-180" />
+                  <p className="text-gray-800 italic leading-relaxed text-sm">
+                    Astrology is not about predicting destiny,
+                    but understanding the cosmic energies guiding
+                    our life journey.
+                  </p>
+                </div>
 
               </div>
 

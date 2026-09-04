@@ -1,14 +1,11 @@
 'use client'
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
+import { Target, Compass, Sparkles, Heart, ShieldCheck, Award, Eye } from 'lucide-react'
 
 export default function AboutUsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#eaf4fb] via-[#9fc9ea] to-[#6fa8d6] text-black">
-
-      <Header />
 
       {/* Soft Glow Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -36,7 +33,7 @@ export default function AboutUsPage() {
       <div className="absolute bottom-40 right-20 w-20 h-20 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full blur-sm opacity-70 animate-pulse"></div>
 
       {/* HERO */}
-      <section className="pt-32 pb-20 relative z-10">
+      <section className="pt-36 sm:pt-40 lg:pt-44 pb-20 relative z-10">
         <div className="container mx-auto px-6">
 
           <motion.div
@@ -184,7 +181,9 @@ export default function AboutUsPage() {
               className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-10 shadow-lg"
             >
 
-              <div className="text-5xl mb-4">🎯</div>
+              <div className="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-700 mb-6 shadow-sm">
+                <Target className="w-7 h-7" />
+              </div>
 
               <h3 className="text-3xl font-bold mb-4 text-[#1a0f0a]">
                 Our Mission
@@ -205,7 +204,9 @@ export default function AboutUsPage() {
               className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-2xl p-10 shadow-lg"
             >
 
-              <div className="text-5xl mb-4">🔮</div>
+              <div className="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-indigo-700 mb-6 shadow-sm">
+                <Eye className="w-7 h-7" />
+              </div>
 
               <h3 className="text-3xl font-bold mb-4 text-[#1a0f0a]">
                 Our Vision
@@ -237,44 +238,43 @@ export default function AboutUsPage() {
           <div className="grid md:grid-cols-3 gap-8">
 
             {[
-              { title: "Authenticity", icon: "✨", desc: "Traditional Vedic astrology practiced with integrity." },
-              { title: "Compassion", icon: "❤️", desc: "Every consultation guided with empathy." },
-              { title: "Accuracy", icon: "🎯", desc: "Precise readings through detailed chart analysis." },
-              { title: "Confidentiality", icon: "🔒", desc: "Your personal details remain private." },
-              { title: "Empowerment", icon: "💪", desc: "Helping you take control of your life path." },
-              { title: "Excellence", icon: "⭐", desc: "Continuous improvement and learning." }
-            ].map((value, index) => (
+              { title: "Authenticity", icon: Sparkles, color: "text-amber-600 bg-amber-100", desc: "Traditional Vedic astrology practiced with integrity." },
+              { title: "Compassion", icon: Heart, color: "text-rose-600 bg-rose-100", desc: "Every consultation guided with empathy." },
+              { title: "Accuracy", icon: Target, color: "text-amber-700 bg-yellow-100", desc: "Precise readings through detailed chart analysis." },
+              { title: "Confidentiality", icon: ShieldCheck, color: "text-blue-600 bg-blue-100", desc: "Your personal details remain private." },
+              { title: "Empowerment", icon: Compass, color: "text-purple-600 bg-purple-100", desc: "Helping you take control of your life path." },
+              { title: "Excellence", icon: Award, color: "text-yellow-600 bg-amber-100", desc: "Continuous improvement and learning." }
+            ].map((value, index) => {
+              const IconComp = value.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-xl p-8 text-center shadow-lg hover:-translate-y-2 transition flex flex-col items-center"
+                >
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-sm ${value.color}`}>
+                    <IconComp className="w-7 h-7" />
+                  </div>
 
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white/60 backdrop-blur-lg border border-white/40 rounded-xl p-8 text-center shadow-lg hover:-translate-y-2 transition"
-              >
+                  <h3 className="text-xl font-semibold mb-3 text-[#1a0f0a]">
+                    {value.title}
+                  </h3>
 
-                <div className="text-5xl mb-4">{value.icon}</div>
-
-                <h3 className="text-xl font-semibold mb-3 text-[#1a0f0a]">
-                  {value.title}
-                </h3>
-
-                <p className="text-black/70">
-                  {value.desc}
-                </p>
-
-              </motion.div>
-
-            ))}
+                  <p className="text-black/70">
+                    {value.desc}
+                  </p>
+                </motion.div>
+              )
+            })}
 
           </div>
 
         </div>
 
       </section>
-
-      <Footer />
 
     </main>
   )
