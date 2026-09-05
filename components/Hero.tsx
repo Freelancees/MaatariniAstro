@@ -139,13 +139,13 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
             {/* Primary: Shop Products */}
-            <Link
+            {/* <Link
               href="/products"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-500 hover:to-amber-500 text-slate-950 rounded-full font-black text-sm sm:text-base shadow-xl shadow-yellow-500/25 transition transform hover:scale-105 active:scale-95"
             >
               <span>Shop All Products (₹999)</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </Link> */}
 
             {/* Secondary: Book Consultation */}
             <Link

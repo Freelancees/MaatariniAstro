@@ -115,24 +115,6 @@ export const products: Product[] = [
     reviewCount: 135
   },
   {
-    slug: "red-coral",
-    name: "Red Coral (Moonga)",
-    category: "gemstones",
-    subcategory: "red-coral",
-    price: 999,
-    oldPrice: 1999,
-    images: ["/image/gemstones/5.jpg"],
-    description: "Sacred stone of Mars (Mangal). Ignites courage, physical stamina, defeats enemies, and eliminates Manglik Dosha impacts.",
-    specifications: [
-      { label: "Ruling Planet", value: "Mars (Mangal)" },
-      { label: "Chakra", value: "Muladhara (Root Chakra)" },
-      ...defaultSpecs
-    ],
-    benefits: ["Boosts courage, stamina and muscular vitality", "Shields against real-estate and property disputes", "Neutralizes Mangal Dosha"],
-    rating: 4.8,
-    reviewCount: 89
-  },
-  {
     slug: "pearl-stone",
     name: "Natural Pearl Stone (Moti)",
     category: "gemstones",

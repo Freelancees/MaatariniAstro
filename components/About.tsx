@@ -93,7 +93,7 @@ export default function About() {
                 <div className="flex justify-center mb-4">
                   <div className="relative w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg">
                     <Image
-                      src="/image/Sir2.jpeg"
+                      src="/image/Sir1.jpeg"
                       alt="Founder"
                       fill
                       className="object-cover"
