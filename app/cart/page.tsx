@@ -74,7 +74,7 @@ export default function CartPage() {
             <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3 text-sm text-emerald-900">
               <Truck className="w-5 h-5 text-emerald-600 shrink-0" />
               <div>
-                <span className="font-bold">Free All-India Delivery Unlocked!</span> Cash on Delivery (COD) is supported on this order.
+                <span className="font-bold">Free All-India Delivery Unlocked!</span>
               </div>
             </div>
 
@@ -196,7 +196,6 @@ export default function CartPage() {
                   <span className="text-emerald-600 font-bold">FREE</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
-                  <span>Cash on Delivery (COD)</span>
                   <span className="text-emerald-600 font-medium">Free Available</span>
                 </div>
 
@@ -210,7 +209,7 @@ export default function CartPage() {
               </div>
 
               {/* COD Feature Card */}
-              <div className="bg-amber-50 rounded-xl p-3.5 border border-amber-200 flex items-start gap-3">
+              {/* <div className="bg-amber-50 rounded-xl p-3.5 border border-amber-200 flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 shrink-0 mt-0.5">
                   <Banknote className="w-4 h-4 text-slate-950" />
                 </div>
@@ -220,7 +219,7 @@ export default function CartPage() {
                     Pay in cash when your package is delivered to your doorstep. No prepayment required!
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Checkout CTA */}
               <Link

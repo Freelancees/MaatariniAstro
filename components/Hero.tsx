@@ -167,10 +167,10 @@ export default function Hero() {
               <ShieldCheck className="w-4 h-4 text-amber-700" />
               <span>100% Original & Vedic Certified</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
+            {/* <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
               <Banknote className="w-4 h-4 text-emerald-700" />
               <span>Cash on Delivery Available Across India</span>
-            </span>
+            </span> */}
             <span className="inline-flex items-center gap-1.5 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-900/10 shadow-xs">
               <Truck className="w-4 h-4 text-blue-700" />
               <span>Free 24-48h Express Dispatch</span>

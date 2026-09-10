@@ -68,7 +68,7 @@ export default function NewArrivalsSection() {
           New Vedic Arrivals
         </h2>
         <p className="text-slate-700 text-sm max-w-xl mx-auto">
-          Freshly consecrated spiritual essentials • Limited batch energized by Vedic Purohits • All at ₹999
+          Freshly consecrated spiritual essentials • Limited batch energized by Vedic Purohits 
         </p>
       </div>
 

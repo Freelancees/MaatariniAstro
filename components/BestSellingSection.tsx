@@ -93,7 +93,7 @@ export default function BestSellingSection() {
           Best Selling Spiritual Products
         </h2>
         <p className="text-slate-700 text-sm max-w-xl mx-auto">
-          Most loved Vedic energized remedies across India • All at unified ₹999 with Free COD Delivery
+          Most loved Vedic energized remedies across India 
         </p>
       </div>
 

@@ -32,7 +32,7 @@ export default function ProductsSection() {
         </h2>
 
         <p className="text-slate-700 text-sm mt-2">
-          Explore handpicked spiritual categories energized for your journey • All at unified ₹999 with Free COD Delivery
+          Explore handpicked spiritual categories energized for your journey 
         </p>
       </div>
 
@@ -94,7 +94,7 @@ export default function ProductsSection() {
             href="/products"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 px-8 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-yellow-500/25 transition transform hover:scale-105 active:scale-95"
           >
-            <span>View All Spiritual Products (₹999)</span>
+            <span>View All Spiritual Products</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

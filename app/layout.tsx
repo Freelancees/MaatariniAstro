@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | Maa Tarini Astro Vision',
   },
   description:
-    'Maa Tarini Astro Vision - Premier Vedic Astrology and Spiritual Center in Bhubaneswar. Buy 100% authentic energized gemstones, certified rudraksha, vastu items, and sacred yantras at ₹999 with Cash on Delivery (COD) across India.',
+    'Maa Tarini Astro Vision - Premier Vedic Astrology and Spiritual Center in Bhubaneswar. Buy 100% authentic energized gemstones, certified rudraksha, vastu items, and sacred yantras serving across all over India.',
   keywords: [
     'astrology bhubaneswar',
     'vedic astrology',
@@ -32,7 +32,6 @@ export const metadata: Metadata = {
     'original rudraksha',
     'vastu yantra',
     'crystals and bracelets',
-    'cash on delivery astrology products',
     'spiritual shop odisha',
     'maa tarini astro vision',
   ],
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
     siteName: 'Maa Tarini Astro Vision',
     title: 'Maa Tarini Astro Vision | Buy Authentic Energized Products ₹999',
     description:
-      'Buy 100% authentic energized gemstones, certified rudrakshas, vastu items, and yantras at ₹999 with Cash on Delivery (COD) across India.',
+      'Buy 100% authentic energized gemstones, certified rudrakshas, vastu items, and yantras serving across all over India.',
     images: [
       {
         url: '/image/logo1.png',

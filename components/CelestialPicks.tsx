@@ -54,7 +54,7 @@ export default function CelestialPicks() {
             </h2>
 
             <p className="text-sm text-slate-700 mt-1 max-w-lg">
-              Handpicked spiritual essentials for your journey • All at unified ₹999 with Free COD Delivery
+              Handpicked spiritual essentials for your journey • 
             </p>
           </div>
 
