@@ -10,10 +10,10 @@ import { useCart } from '@/context/CartContext'
 import { getProductBySlug } from '@/lib/products'
 
 const newArrivals = [
-  { name: 'Maha Laxmi Golden Pyramid', slug: 'laxmi-pyramid', image: '/image/best selling/laxmi pyramid.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },
-  { name: 'Crystal Dowsing Pendulum', slug: 'pendulum', image: '/image/best selling/Pendulum.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },
+  { name: 'Maha Laxmi Golden Pyramid', slug: 'laxmi-pyramid', image: '/image/best selling/laxmi pyramid.png', price: 699, oldPrice: 1999, badge: 'New Arrival' },
+  { name: 'Crystal Dowsing Pendulum', slug: 'pendulum', image: '/image/best selling/Pendulum.png', price: 499, oldPrice: 499, badge: 'New Arrival' },
   { name: 'Sacred Himalayan Sea Salt Powder', slug: 'sea-salt-powder', image: '/image/best selling/Sea Salt Powder.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },
-  { name: 'Money Magnet Pyrite Pyramid', slug: 'money-magnet-pyrite-pyramid', image: '/image/best selling/Money Magnet Pyrite Pyramid.png', price: 999, oldPrice: 1999, badge: 'Trending' },
+  { name: 'Money Magnet Pyrite Pyramid', slug: 'money-magnet-pyrite-pyramid', image: '/image/best selling/Money Magnet Pyrite Pyramid.png', price: 700, oldPrice: 1999, badge: 'Trending' },
   { name: '9 Planets Sacred Ritual Oil', slug: '9-planets-oil', image: '/image/best selling/9 Planets Oil.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },
   { name: 'Vastu Purush Brahmasthan Plate', slug: 'vastu-purush-brahmasthan-plate', image: '/image/best selling/Vastu purush brahmasthan plate.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },
   { name: 'Green Aventurine Zibu Pyramid', slug: 'green-zebu-pyramid', image: '/image/best selling/Green Zebu Pyramid.png', price: 999, oldPrice: 1999, badge: 'New Arrival' },

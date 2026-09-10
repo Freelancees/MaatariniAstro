@@ -59,9 +59,9 @@ export default function ProductsSection() {
                     className="object-cover group-hover:scale-108 transition duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition" />
-                  <span className="absolute top-3 left-3 bg-yellow-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                  {/* <span className="absolute top-3 left-3 bg-yellow-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
                     Flat ₹999
-                  </span>
+                  </span> */}
                 </div>
 
                 {/* Caption */}

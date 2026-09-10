@@ -100,9 +100,9 @@ export default function CelestialPicks() {
                       fill
                       className="object-contain p-2 group-hover:scale-108 transition duration-500"
                     />
-                    <span className="absolute top-2.5 left-2.5 bg-yellow-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
+                    {/* <span className="absolute top-2.5 left-2.5 bg-yellow-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-xs">
                       ₹999 COD
-                    </span>
+                    </span> */}
                   </div>
                 </Link>
 
